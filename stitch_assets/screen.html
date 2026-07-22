@@ -1,0 +1,408 @@
+<html class="dark" lang="en" style=""><head></head><body class="font-body-md text-body-md antialiased overflow-x-hidden bg-background text-on-surface">```html
+<meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&amp;family=Inter:wght@400;500&amp;family=Space+Grotesk:wght@600&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=block" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=block" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;family=Plus+Jakarta+Sans:wght@100..900&amp;family=Space+Grotesk:wght@100..900&amp;display=swap" rel="stylesheet"/><script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script><script id="tailwind-config">try{
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "secondary-container": "#af8d11",
+                    "primary-container": "#00539b",
+                    "inverse-surface": "#e1e3e4",
+                    "on-error": "#690005",
+                    "primary-fixed-dim": "#a6c8ff",
+                    "tertiary": "#c8c6c5",
+                    "secondary-fixed-dim": "#e9c349",
+                    "on-primary-fixed": "#001c3a",
+                    "secondary": "#e9c349",
+                    "tertiary-container": "#535252",
+                    "error-container": "#93000a",
+                    "on-surface-variant": "#94a3b8",
+                    "background": "#050708",
+                    "surface-tint": "#a6c8ff",
+                    "on-primary": "#00315f",
+                    "error": "#ffb4ab",
+                    "surface-container-low": "#0c0e10",
+                    "surface-container-high": "#1a1d21",
+                    "secondary-fixed": "#ffe088",
+                    "inverse-primary": "#1c5fa8",
+                    "on-secondary-fixed-variant": "#574500",
+                    "outline-variant": "#1e293b",
+                    "on-background": "#f8fafc",
+                    "on-secondary": "#3c2f00",
+                    "on-tertiary-fixed-variant": "#474646",
+                    "on-secondary-container": "#342800",
+                    "outline": "#334155",
+                    "inverse-on-surface": "#050708",
+                    "surface-container": "#0c0e10",
+                    "tertiary-fixed-dim": "#c8c6c5",
+                    "surface-bright": "#121518",
+                    "tertiary-fixed": "#e5e2e1",
+                    "on-surface": "#f8fafc",
+                    "on-tertiary-fixed": "#1c1b1b",
+                    "surface-container-lowest": "#050708",
+                    "surface-dim": "#050708",
+                    "on-secondary-fixed": "#241a00",
+                    "on-primary-container": "#a6c8ff",
+                    "on-error-container": "#ffdad6",
+                    "on-primary-fixed-variant": "#004786",
+                    "surface-container-highest": "#121518",
+                    "on-tertiary": "#313030",
+                    "primary-fixed": "#d4e3ff",
+                    "surface-variant": "#0c0e10",
+                    "on-tertiary-container": "#c8c5c5",
+                    "primary": "#a6c8ff",
+                    "surface": "#050708"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "section-gap": "120px",
+                    "stack-sm": "8px",
+                    "margin-desktop": "80px",
+                    "stack-lg": "32px",
+                    "stack-md": "16px",
+                    "margin-mobile": "20px",
+                    "container-max": "1200px",
+                    "gutter": "24px"
+            },
+            "fontFamily": {
+                    "body-lg": ["Inter"],
+                    "headline-md": ["Plus Jakarta Sans"],
+                    "label-caps": ["Space Grotesk"],
+                    "headline-sm": ["Plus Jakarta Sans"],
+                    "display-lg": ["Plus Jakarta Sans"],
+                    "body-md": ["Inter"],
+                    "display-lg-mobile": ["Plus Jakarta Sans"]
+            },
+            "fontSize": {
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "headline-md": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                    "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.1em", "fontWeight": "600"}],
+                    "headline-sm": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "display-lg": ["64px", {"lineHeight": "72px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "display-lg-mobile": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    }catch(_e){}</script>
+<style>
+    .glow-gold { text-shadow: 0 0 20px rgba(233, 195, 73, 0.3); }
+    .timeline-line { width: 1px; background: linear-gradient(to bottom, transparent, #1e293b, transparent); }
+    .tonal-card { background: #0c0e10; border: 1px solid #1e293b; }
+</style>
+<!-- TopNavBar -->
+<header class="fixed top-0 w-full z-50 bg-background/80 backdrop-blur-xl border-b border-outline-variant/30 shadow-sm">
+<nav class="flex justify-between items-center px-margin-mobile md:px-margin-desktop py-4 max-w-container-max mx-auto">
+<div class="font-headline-sm text-headline-sm font-bold text-primary">DevExpert</div>
+<div class="hidden md:flex items-center gap-stack-lg">
+<a class="text-on-surface-variant hover:text-on-surface transition-colors font-body-md text-body-md" href="#about">About</a>
+<a class="text-on-surface-variant hover:text-on-surface transition-colors font-body-md text-body-md" href="#experience">Experience</a>
+<a class="text-on-surface-variant hover:text-on-surface transition-colors font-body-md text-body-md" href="#projects">Projects</a>
+<a class="text-on-surface-variant hover:text-on-surface transition-colors font-body-md text-body-md" href="#skills">Skills</a>
+<a class="text-on-surface-variant hover:text-on-surface transition-colors font-body-md text-body-md" href="#readings">Readings</a>
+<a class="text-on-surface-variant hover:text-on-surface transition-colors font-body-md text-body-md" href="#contact">Contact</a>
+</div>
+<button class="bg-primary text-on-primary font-bold px-6 py-2 rounded-lg hover:scale-105 active:scale-95 transition-all">
+                Download CV
+            </button>
+</nav>
+</header>
+<main>
+<!-- Hero Section -->
+<section class="relative min-h-screen flex items-center pt-24 overflow-hidden" id="about">
+<div class="relative z-10 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto grid grid-cols-1 md:grid-cols-12 gap-gutter items-center">
+<div class="md:col-span-7 space-y-stack-lg">
+<span class="font-label-caps text-label-caps text-secondary tracking-widest uppercase glow-gold">Strategic Mobile Engineering</span>
+<h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-on-surface leading-tight">
+                        Building High-Performance <span class="text-primary">Mobile Experiences</span>
+</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl">
+                        I specialize in architecting resilient, scalable Flutter applications for enterprise ecosystems. My approach bridges executive vision with high-fidelity technical execution.
+                    </p>
+<div class="flex flex-wrap gap-stack-md pt-4">
+<a class="bg-primary text-on-primary font-bold px-8 py-4 rounded-xl hover:scale-105 transition-all flex items-center gap-2" href="#projects">
+                            Explore My Work
+                            <span class="material-symbols-outlined">arrow_forward</span>
+</a>
+<a class="border border-outline-variant text-on-surface font-bold px-8 py-4 rounded-xl hover:bg-surface-container transition-all" href="#contact">
+                            Partner With Me
+                        </a>
+</div>
+</div>
+<div class="md:col-span-5 hidden md:block">
+<div class="relative w-full aspect-square">
+<div class="absolute inset-0 bg-primary/5 rounded-full blur-[100px]"></div>
+<img class="relative z-10 w-full h-full object-cover rounded-3xl shadow-2xl grayscale hover:grayscale-0 transition-all duration-700 border border-outline-variant/20" data-alt="A cinematic, high-end close-up portrait of a professional software architect in a dimly lit, modern workspace." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBnnSdRrIao2vQJkhC_2UTGuBU0lD_Vpj7qQxG78LNLbbq1ouL9YQa1yPuM1drHlDbtRyHkQGoY9i0BRcE6H2YmH8bgAPrvhM9PfR8yDXHCR6cRnPay11suYZ4iSpFDYxyvGWn--6u9GuBZ6cfEAjLSkYMd0tEF8HLUaqh5_ZTeqzB9FHY5xbqWehnQimmlvgh0X8PmhlOih__8UCHx5LvFWnT8nt8gyCj8lhhqYFS26xrN_UG7qorqPvyiiUKhoI4pITzu-G8szXE"/>
+</div>
+</div>
+</div>
+</section>
+<!-- Experience Section -->
+<section class="py-section-gap px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto" id="experience">
+<div class="text-center mb-section-gap">
+<span class="font-label-caps text-label-caps text-primary tracking-widest uppercase">My Journey</span>
+<h2 class="font-headline-md text-headline-md text-on-surface mt-4">Professional Impact &amp; Evolution</h2>
+</div>
+<div class="relative space-y-16">
+<div class="absolute left-0 md:left-1/2 top-0 bottom-0 timeline-line -translate-x-1/2 hidden md:block"></div>
+<div class="relative grid grid-cols-1 md:grid-cols-2 gap-stack-lg items-center">
+<div class="md:text-right md:pr-12 order-2 md:order-1">
+<span class="font-label-caps text-label-caps text-secondary">2021 — PRESENT</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mt-2">Principal Flutter Architect</h3>
+<p class="text-on-surface-variant mt-4 font-body-md text-body-md">
+                            Directing the transition of legacy mobile infrastructure to a unified Flutter codebase for global fintech platforms. Championed Clean Architecture to reduce maintenance costs by 40% while ensuring 99.9% crash-free sessions.
+                        </p>
+</div>
+<div class="flex justify-center order-1 md:order-2">
+<div class="w-12 h-12 bg-surface-container border border-secondary rounded-full flex items-center justify-center timeline-node z-10">
+<span class="material-symbols-outlined text-secondary">corporate_fare</span>
+</div>
+</div>
+</div>
+<div class="relative grid grid-cols-1 md:grid-cols-2 gap-stack-lg items-center">
+<div class="hidden md:flex justify-center">
+<div class="w-12 h-12 bg-surface-container border border-primary rounded-full flex items-center justify-center timeline-node z-10">
+<span class="material-symbols-outlined text-primary">rocket_launch</span>
+</div>
+</div>
+<div class="md:pl-12">
+<span class="font-label-caps text-label-caps text-primary">2018 — 2021</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mt-2">Senior Mobile Engineer</h3>
+<p class="text-on-surface-variant mt-4 font-body-md text-body-md">
+                            Led development for a high-growth health-tech startup. Architected a real-time biometrics dashboard that scaled from 10k to 500k monthly active users. Integrated HIPAA-compliant data encryption protocols.
+                        </p>
+</div>
+</div>
+<div class="relative grid grid-cols-1 md:grid-cols-2 gap-stack-lg items-center">
+<div class="md:text-right md:pr-12 order-2 md:order-1">
+<span class="font-label-caps text-label-caps text-on-surface-variant">2015 — 2018</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mt-2">Product Software Engineer</h3>
+<p class="text-on-surface-variant mt-4 font-body-md text-body-md">
+                            Collaborated with design teams to build pixel-perfect interfaces for e-commerce pioneers. Specialized in fluid animations and cross-platform performance optimization on low-end devices.
+                        </p>
+</div>
+<div class="flex justify-center order-1 md:order-2">
+<div class="w-12 h-12 bg-surface-container border border-outline-variant rounded-full flex items-center justify-center timeline-node z-10">
+<span class="material-symbols-outlined text-outline">devices</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Featured Projects Section -->
+<section class="py-section-gap px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto border-t border-outline-variant/10" id="projects">
+<div class="mb-24">
+<span class="font-label-caps text-label-caps text-secondary tracking-widest uppercase">Portfolio</span>
+<h2 class="font-headline-md text-headline-md text-on-surface mt-4">Featured Solutions</h2>
+<p class="text-on-surface-variant mt-4 max-w-2xl">A selection of high-impact applications where architectural precision meets exceptional user experience.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+<!-- Project 1 Card -->
+<div class="bg-surface-container p-8 rounded-3xl border border-outline-variant/20 flex flex-col justify-between hover:bg-surface-container-high transition-all group">
+<div class="space-y-6">
+<div class="flex justify-between items-start">
+<span class="font-label-caps text-label-caps text-primary tracking-widest uppercase">Fintech Ecosystem</span>
+<span class="material-symbols-outlined text-primary text-headline-md">account_balance</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface">NeoBank Global</h3>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+        Re-engineered the mobile banking experience for 2M+ users, unifying complex financial workflows into a high-performance Flutter application. Successfully reduced transaction latency and improved accessibility across diverse markets.
+      </p>
+</div>
+<div class="flex flex-wrap gap-4 pt-8">
+<a class="inline-flex items-center gap-2 bg-background hover:bg-primary/10 text-on-surface px-4 py-2 rounded-lg border border-outline-variant/30 transition-all text-body-md" href="#">
+<img alt="App Store" class="w-4 h-4 invert" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDD_3HjxErEMHb1gVVnR6W7hEQ0KdBS_0YxKzxuR_x3_h1ElcVzCDf4C-1Pr4gCw83hxVB_NuXcBs5Ph-DqpzrvIt0yAmPYecnC7SMMjdpdFsAgqRYIiDfpex_P0_g7aqwGDgCcW8a-qVzbwljes4lBf2-oxUzedH7__7LcjRAFfsDr3ZyAC30CBWm7G1dF0tkVuASYb_Osbp5L8opqf3ADV5oEt4YRfoaN_KmSE46kVwvmMvvoqNTImJsn_95BSzx9Hfb22MUmxds"/>
+<span class="font-bold">App Store</span>
+</a>
+<a class="inline-flex items-center gap-2 bg-background hover:bg-primary/10 text-on-surface px-4 py-2 rounded-lg border border-outline-variant/30 transition-all text-body-md" href="#">
+<img alt="Google Play" class="w-4 h-4" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA1VAwAg8HACDhZ4nqTn1-wfm322isT58j3UwvaDZpEyVqVXEO4_Zfa0n4-r8T-fwuQyP-9_4UexrUZbr4Sbcr2Dg7tbXf6gNwn81jov4zfW8fbkVetlHWhtplekKrzqcmzTCfUQyeFTF3ja6eM81zqWkUvbOECuyfB-l0t6aXFox00QnHmBNbg5vK3ddyU3fghW3MG9uuBkbpioz3NUlZ4-YAIZRI0X9t9dxdRSxwVKqoaANd9TyPl7QmcTaxGP8culgM1q8O111U"/>
+<span class="font-bold">Google Play</span>
+</a>
+</div>
+</div>
+<!-- Project 2 Card -->
+<div class="bg-surface-container p-8 rounded-3xl border border-outline-variant/20 flex flex-col justify-between hover:bg-surface-container-high transition-all group">
+<div class="space-y-6">
+<div class="flex justify-between items-start">
+<span class="font-label-caps text-label-caps text-secondary tracking-widest uppercase">HealthTech Innovation</span>
+<span class="material-symbols-outlined text-secondary text-headline-md">monitoring</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface">PulseHealth Monitor</h3>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+        Developed a critical care biometrics dashboard that processes real-time data from wearable devices. The platform provides healthcare providers with actionable insights, facilitating faster clinical decisions and improved patient outcomes.
+      </p>
+</div>
+<div class="flex flex-wrap gap-4 pt-8">
+<a class="inline-flex items-center gap-2 bg-background hover:bg-secondary/10 text-on-surface px-4 py-2 rounded-lg border border-outline-variant/30 transition-all text-body-md" href="#">
+<img alt="App Store" class="w-4 h-4 invert" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAWEIUPilbSTlkkGjHnL8ATgKAuVm126X9-7ENvsJqKCD2uN1W_aHlDqOtkNC75ITOZSOpSd_MFvI6dRUYj3vkzn9UKRo4a-wt-BKwBdrJhIHrr-PJ8PMDKfxVZ1aFle20V6hVW0SlNluHdmJftZNiKMOjyrmZlNIi67hm5pfgCTagWfaFgJCsx_Oj-OOtt5OS6XhQObTcrC-h-_5xk6zVNYHLJXRjv4pYT-gf0s6UEFpprEZE1Krh2WSWO1c7n1boX2_GiqKNNYHs"/>
+<span class="font-bold">App Store</span>
+</a>
+<a class="inline-flex items-center gap-2 bg-background hover:bg-secondary/10 text-on-surface px-4 py-2 rounded-lg border border-outline-variant/30 transition-all text-body-md" href="#">
+<img alt="Google Play" class="w-4 h-4" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBpFh0zGbxDHwgXpAZJSw05MuMt38O7TPv3MSJN02lEoZMlaH4HrjE3g8OyLXszsPH60ZG8nGQY7Dy_J0UofRIyqOs_N0pLoU4mIh1vAmTBTQSubHVAXkzeVS4hbuWNTDbNFyhlBCj1DFXee-fFslBv0oj6wSa4VmelG2e3yefi9GywVPbzc4TQ6WsYoZ2fDFLCJzm9XqzBj42LpuxkyU9C2XwbvZigDOERLQa_lxJODs2oe8jYjc6glLbsePC5rIoS-t-xAC2Eeh0"/>
+<span class="font-bold">Google Play</span>
+</a>
+</div>
+</div>
+</div>
+</section>
+<!-- Skills Section -->
+<section class="py-section-gap bg-surface-container-low" id="skills">
+<div class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+<div class="flex flex-col md:flex-row justify-between items-end gap-stack-lg mb-16">
+<div class="max-w-xl">
+<span class="font-label-caps text-label-caps text-primary tracking-widest uppercase">Methodology</span>
+<h2 class="font-headline-md text-headline-md text-on-surface mt-4">Expertise in Strategic Engineering</h2>
+<p class="text-on-surface-variant mt-4">My toolkit is curated for high-impact enterprise solutions, focusing on reliability, speed, and long-term maintainability.</p>
+</div>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-stack-md">
+<div class="skill-badge bg-background p-6 rounded-2xl text-center group border border-outline-variant/20 hover:border-primary/30 transition-all">
+<span class="material-symbols-outlined text-4xl text-primary mb-4 block transition-transform group-hover:scale-110">flutter</span>
+<div class="font-body-md text-body-md font-bold text-on-surface">Flutter</div>
+</div>
+<div class="skill-badge bg-background p-6 rounded-2xl text-center group border border-outline-variant/20 hover:border-secondary/30 transition-all">
+<span class="material-symbols-outlined text-4xl text-secondary mb-4 block transition-transform group-hover:scale-110">architecture</span>
+<div class="font-body-md text-body-md font-bold text-on-surface">Clean Architecture</div>
+</div>
+<div class="skill-badge bg-background p-6 rounded-2xl text-center group border border-outline-variant/20 hover:border-primary/30 transition-all">
+<span class="material-symbols-outlined text-4xl text-primary mb-4 block transition-transform group-hover:scale-110">rule</span>
+<div class="font-body-md text-body-md font-bold text-on-surface">TDD</div>
+</div>
+<div class="skill-badge bg-background p-6 rounded-2xl text-center group border border-outline-variant/20 hover:border-secondary/30 transition-all">
+<span class="material-symbols-outlined text-4xl text-secondary mb-4 block transition-transform group-hover:scale-110">hub</span>
+<div class="font-body-md text-body-md font-bold text-on-surface">Enterprise Logic</div>
+</div>
+<div class="skill-badge bg-background p-6 rounded-2xl text-center group border border-outline-variant/20 hover:border-primary/30 transition-all">
+<span class="material-symbols-outlined text-4xl text-primary mb-4 block transition-transform group-hover:scale-110">build_circle</span>
+<div class="font-body-md text-body-md font-bold text-on-surface">Refactoring</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Readings Section -->
+<section class="py-section-gap px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto" id="readings">
+<div class="mb-16">
+<span class="font-label-caps text-label-caps text-secondary tracking-widest uppercase">Intellectual Growth</span>
+<h2 class="font-headline-md text-headline-md text-on-surface mt-4">Curated Professional Readings</h2>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-gutter">
+<div class="tonal-card p-4 rounded-2xl group">
+<div class="aspect-[3/4] rounded-lg overflow-hidden mb-6 bg-background">
+<img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500 opacity-80 group-hover:opacity-100" data-alt="Clean Architecture book cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCZnKNWGKvS_1_Dq-9HiU9Lx9grGKml9rvWArfK7mfBOlSIt8L9UL0jq-QwhpTylNUaYmGzYmudP0J25j78qlyBk1RJWGQS6AUSbqvziv5Q8m6xBwwNGWTv6qbk9kCyby4PRzeBMV3xFH4D44ckJX6cHvAtgeQ9_B18Sq_LMyqEl1Df-1AkLBOv06adq22Qu7cWqEy79Y34d-hXO9Ey329NKRD1d-jswRCH4gX1ZlPfub4vcojfWeCyqlTrQQl3-dgCKXU8HRVMUcw"/>
+</div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface text-base">Clean Architecture</h4>
+<p class="text-on-surface-variant font-label-caps text-label-caps mt-1">Robert C. Martin</p>
+</div>
+<div class="tonal-card p-4 rounded-2xl group">
+<div class="aspect-[3/4] rounded-lg overflow-hidden mb-6 bg-background">
+<img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500 opacity-80 group-hover:opacity-100" data-alt="Refactoring book cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuATih4BEGclpFBA4YIjoGZoCFdlJkzzYoxDz1AJb6nCZf0tvKSb_pr8PlRxjn2Bz6VQbXxcBqyFF3ccI42-79fpF3CkbLQPE4MiOnqyjx2VKL5Byz1wfTPXvsRYUgGGfCQmODDDiwvpvkIQUrxSMXayTDHbPbgAdehHXNNIgGoEE1b7Cg58IBk1GxaAzru-On6D4kFQIyUBNFXewRE_By_0B49b6O4s71Xk9nfHg8KpENserRfGEwDt9CdJwwYbOV_EakmVahR1jRE"/>
+</div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface text-base">Refactoring</h4>
+<p class="text-on-surface-variant font-label-caps text-label-caps mt-1">Martin Fowler</p>
+</div>
+<div class="tonal-card p-4 rounded-2xl group">
+<div class="aspect-[3/4] rounded-lg overflow-hidden mb-6 bg-background">
+<img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500 opacity-80 group-hover:opacity-100" data-alt="Domain-Driven Design book cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD7sDNjYNl0pFPt4YdmjXb5tG09UIo5g1Ej_EXXt5rVSw7ASMcveLgfpT2B88fp9vQUm3HomHmwZ_u-eES8DmsBTzq4Sa7POW0ohAiCZljkC_DZpWmIHLHiexJpfq82fbUVYMTMjRo1tExywtGjDczs7ZeqSP_nwgnbEJd-AbTsIn53ircK-_xzIgxJHbZPqaYkY6RDs0SN6iTly1A41mUFyN38nqJ1bU1zQslLLUa-Se8aYnWP05nu7W-biZe57fhTi0CXJj9acC8"/>
+</div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface text-base">Domain-Driven Design</h4>
+<p class="text-on-surface-variant font-label-caps text-label-caps mt-1">Eric Evans</p>
+</div>
+<div class="tonal-card p-4 rounded-2xl group">
+<div class="aspect-[3/4] rounded-lg overflow-hidden mb-6 bg-background">
+<img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500 opacity-80 group-hover:opacity-100" data-alt="Building Microservices book cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD-jt1u3aNVVh83JTLJGcg9UkmbU9ddsQ3lANCcR58iCbKoPj_-ULwxxOnqpgIj8o8qVmdsPqHhxXrCk4Dpf4qlIyJNSAXNR12O3IDzsFWTTwKQRPpoxND1tlf2aOw6zQhGYzfFvlc2FFmf7eNp6pwfpDx-UaggszNTjMF2Q9XqLH3yzXyXWBU0BPdCcEVJPtJD-og7hLeF9BCX7SGN88TQtIk0K_RSbN-z0taw7kJeCjnkmMpV1_oS7n3xPy4baakxelttCx_TaJ0"/>
+</div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface text-base">Building Microservices</h4>
+<p class="text-on-surface-variant font-label-caps text-label-caps mt-1">Sam Newman</p>
+</div>
+</div>
+</section>
+<!-- Contact Section -->
+<section class="py-section-gap bg-background" id="contact">
+<div class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto grid grid-cols-1 lg:grid-cols-12 gap-section-gap items-center">
+<div class="lg:col-span-5">
+<span class="font-label-caps text-label-caps text-primary tracking-widest uppercase">Engagement</span>
+<h2 class="font-headline-md text-headline-md text-on-surface mt-4 mb-6">Let's Discuss Your Strategic Vision</h2>
+<p class="text-on-surface-variant mb-12">Currently open to architectural consulting and high-impact partnership opportunities.</p>
+<div class="space-y-6">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 bg-primary-container/10 rounded-full flex items-center justify-center border border-primary/20">
+<span class="material-symbols-outlined text-primary">mail</span>
+</div>
+<div>
+<div class="font-label-caps text-label-caps text-on-surface-variant">EMAIL</div>
+<div class="font-body-lg text-body-lg text-on-surface">strategy@devexpert.io</div>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 bg-secondary-container/10 rounded-full flex items-center justify-center border border-secondary/20">
+<span class="material-symbols-outlined text-secondary">location_on</span>
+</div>
+<div>
+<div class="font-label-caps text-label-caps text-on-surface-variant">LOCATION</div>
+<div class="font-body-lg text-body-lg text-on-surface">Global Architecture | remote</div>
+</div>
+</div>
+</div>
+</div>
+<div class="lg:col-span-7">
+<form class="tonal-card p-8 md:p-12 rounded-3xl space-y-stack-lg shadow-2xl">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-stack-lg">
+<div class="space-y-2">
+<label class="font-label-caps text-label-caps text-on-surface-variant">Full Name</label>
+<input class="w-full bg-transparent border-0 border-b border-outline-variant focus:ring-0 focus:border-primary transition-colors py-3 text-on-surface placeholder:text-outline-variant/50" placeholder="John Doe" type="text"/>
+</div>
+<div class="space-y-2">
+<label class="font-label-caps text-label-caps text-on-surface-variant">Corporate Email</label>
+<input class="w-full bg-transparent border-0 border-b border-outline-variant focus:ring-0 focus:border-primary transition-colors py-3 text-on-surface placeholder:text-outline-variant/50" placeholder="john@company.com" type="email"/>
+</div>
+</div>
+<div class="space-y-2">
+<label class="font-label-caps text-label-caps text-on-surface-variant">Project Summary</label>
+<textarea class="w-full bg-transparent border-0 border-b border-outline-variant focus:ring-0 focus:border-primary transition-colors py-3 text-on-surface placeholder:text-outline-variant/50 resize-none" placeholder="How can I help you scale your mobile infrastructure?" rows="4"></textarea>
+</div>
+<button class="w-full bg-primary text-on-primary font-bold py-4 rounded-xl hover:bg-primary/90 transition-all active:scale-95 shadow-lg shadow-primary/20" type="submit">
+                            Send Strategic Inquiry
+                        </button>
+</form>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full py-section-gap bg-background border-t border-outline-variant/20">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-stack-lg px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto items-center">
+<div class="space-y-4">
+<div class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest">Senior Flutter Architect</div>
+<p class="text-on-surface-variant font-body-md text-body-md max-w-xs">Building the future of enterprise mobile development through strategic engineering.</p>
+</div>
+<div class="flex flex-wrap justify-center gap-stack-md">
+<a class="text-on-surface-variant hover:text-secondary transition-colors font-body-md text-body-md" href="#">LinkedIn</a>
+<a class="text-on-surface-variant hover:text-secondary transition-colors font-body-md text-body-md" href="#">GitHub</a>
+<a class="text-on-surface-variant hover:text-secondary transition-colors font-body-md text-body-md" href="#">GitLab</a>
+<a class="text-on-surface-variant hover:text-secondary transition-colors font-body-md text-body-md" href="#contact">Contact</a>
+</div>
+<div class="text-right space-y-4">
+<div class="font-label-caps text-label-caps text-on-surface-variant">© 2024 Senior Flutter Architect. All rights reserved.</div>
+<div class="flex justify-end gap-stack-md">
+<span class="material-symbols-outlined text-outline-variant hover:text-primary cursor-pointer">language</span>
+<span class="material-symbols-outlined text-outline-variant hover:text-primary cursor-pointer">verified</span>
+</div>
+</div>
+</div>
+</footer>
+<script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+</script>```</body></html>
