@@ -6,4 +6,6 @@ abstract class AppAssets {
   static const String bookPlaceholder = 'assets/images/book_placeholder.png';
 
   static const String cvPdfPath = 'docs/mahmood_abdelrazek_cv.pdf';
+
+  static const String signature = 'assets/images/my_signature.png';
 }

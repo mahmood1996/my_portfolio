@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:portfolio/design_system/asset_paths/app_assets.dart';
 import 'shared/hover_tracking.dart';
 import '../../design_system/theme/app_colors.dart';
 import '../bloc/portfolio_bloc.dart';
@@ -32,13 +33,7 @@ class NavBarWidget extends StatelessWidget implements PreferredSizeWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               // Logo
-              Text(
-                'DevExpert',
-                style: Theme.of(context).textTheme.headlineSmall?.copyWith(
-                  color: AppColors.primary,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
+              Image.asset(AppAssets.signature),
 
               // Desktop Links
               if (isDesktop)
