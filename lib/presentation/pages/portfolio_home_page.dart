@@ -13,14 +13,14 @@ import '../widgets/projects_section_widget.dart';
 import '../widgets/readings_section_widget.dart';
 import '../widgets/skills_section_widget.dart';
 
-class PortfolioHomePage extends StatefulWidget {
+final class PortfolioHomePage extends StatefulWidget {
   const PortfolioHomePage({super.key});
 
   @override
   State<PortfolioHomePage> createState() => _PortfolioHomePageState();
 }
 
-class _PortfolioHomePageState extends State<PortfolioHomePage> {
+final class _PortfolioHomePageState extends State<PortfolioHomePage> {
   final ScrollController _scrollController = ScrollController();
 
   final GlobalKey _aboutKey = GlobalKey();

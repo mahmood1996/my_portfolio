@@ -1,19 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:responsive_builder/responsive_builder.dart';
 import '../../design_system/theme/app_colors.dart';
 import '../../domain/entities/contact_inquiry.dart';
 import '../bloc/portfolio_bloc.dart';
 import '../bloc/portfolio_event.dart';
 import '../bloc/portfolio_state.dart';
+import 'shared/responsive_section_widget.dart';
 
-class ContactSectionWidget extends StatefulWidget {
+final class ContactSectionWidget extends StatefulWidget {
   const ContactSectionWidget({super.key});
 
   @override
   State<ContactSectionWidget> createState() => _ContactSectionWidgetState();
 }
 
-class _ContactSectionWidgetState extends State<ContactSectionWidget> {
+final class _ContactSectionWidgetState extends State<ContactSectionWidget> {
   final _formKey = GlobalKey<FormState>();
   final _nameController = TextEditingController();
   final _emailController = TextEditingController();
@@ -40,18 +42,12 @@ class _ContactSectionWidgetState extends State<ContactSectionWidget> {
 
   @override
   Widget build(BuildContext context) {
-    final isDesktop = MediaQuery.sizeOf(context).width >= 900;
-    final paddingHorizontal = isDesktop ? 64.0 : 20.0;
+    return ResponsiveBuilder(
+      builder: (context, sizingInformation) {
+        final isDesktop = sizingInformation.isDesktop;
 
-    return Container(
-      color: AppColors.background,
-      padding: EdgeInsets.symmetric(
-        horizontal: paddingHorizontal,
-        vertical: 96,
-      ),
-      child: Center(
-        child: Container(
-          constraints: const BoxConstraints(maxWidth: 1200),
+        return ResponsiveSectionWidget(
+          backgroundColor: AppColors.background,
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -178,8 +174,8 @@ class _ContactSectionWidgetState extends State<ContactSectionWidget> {
               if (isDesktop) Expanded(flex: 7, child: _buildForm(context)),
             ],
           ),
-        ),
-      ),
+        );
+      },
     );
   }
 

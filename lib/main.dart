@@ -8,8 +8,9 @@ import 'domain/usecases/send_contact_inquiry.dart';
 import 'presentation/bloc/portfolio_bloc.dart';
 import 'presentation/pages/portfolio_home_page.dart';
 
-void main() async {
+void main() {
   WidgetsFlutterBinding.ensureInitialized();
+
   runApp(const PortfolioApp());
 }
 

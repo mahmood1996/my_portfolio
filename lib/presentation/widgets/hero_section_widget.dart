@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:responsive_builder/responsive_builder.dart';
 import '../../design_system/asset_paths/app_assets.dart';
 import '../../design_system/theme/app_colors.dart';
+import 'shared/responsive_section_widget.dart';
 
-class HeroSectionWidget extends StatelessWidget {
+final class HeroSectionWidget extends StatelessWidget {
   final VoidCallback onExploreWork;
   final VoidCallback onPartnerWithMe;
 
@@ -14,17 +16,13 @@ class HeroSectionWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final isDesktop = MediaQuery.of(context).size.width >= 900;
-    final paddingHorizontal = isDesktop ? 64.0 : 20.0;
+    return ResponsiveBuilder(
+      builder: (context, sizingInformation) {
+        final isDesktop = sizingInformation.isDesktop;
+        final verticalPadding = isDesktop ? 96.0 : 48.0;
 
-    return Container(
-      padding: EdgeInsets.symmetric(
-        horizontal: paddingHorizontal,
-        vertical: isDesktop ? 96.0 : 48.0,
-      ),
-      child: Center(
-        child: Container(
-          constraints: const BoxConstraints(maxWidth: 1200),
+        return ResponsiveSectionWidget(
+          verticalPadding: verticalPadding,
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
@@ -182,8 +180,8 @@ class HeroSectionWidget extends StatelessWidget {
                 ),
             ],
           ),
-        ),
-      ),
+        );
+      },
     );
   }
 }

@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:responsive_builder/responsive_builder.dart';
 import '../../design_system/theme/app_colors.dart';
 import '../../domain/entities/experience_entity.dart';
+import 'experience_card_mobile_widget.dart';
+import 'experience_content_widget.dart';
+import 'shared/responsive_section_widget.dart';
 
-class ExperienceSectionWidget extends StatelessWidget {
+final class ExperienceSectionWidget extends StatelessWidget {
   final List<ExperienceEntity> experiences;
 
   const ExperienceSectionWidget({super.key, required this.experiences});
@@ -21,37 +25,31 @@ class ExperienceSectionWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final isDesktop = MediaQuery.of(context).size.width >= 768;
-    final paddingHorizontal = isDesktop ? 64.0 : 20.0;
+    return ResponsiveSectionWidget(
+      child: Column(
+        children: [
+          // Header
+          Text(
+            'MY JOURNEY',
+            style: Theme.of(context).textTheme.labelLarge?.copyWith(
+              color: AppColors.primary,
+              letterSpacing: 2.0,
+            ),
+          ),
+          const SizedBox(height: 12),
+          Text(
+            'Professional Impact & Evolution',
+            style: Theme.of(context).textTheme.headlineMedium,
+            textAlign: TextAlign.center,
+          ),
+          const SizedBox(height: 64),
 
-    return Container(
-      padding: EdgeInsets.symmetric(
-        horizontal: paddingHorizontal,
-        vertical: 96,
-      ),
-      child: Center(
-        child: Container(
-          constraints: const BoxConstraints(maxWidth: 1200),
-          child: Column(
-            children: [
-              // Header
-              Text(
-                'MY JOURNEY',
-                style: Theme.of(context).textTheme.labelLarge?.copyWith(
-                  color: AppColors.primary,
-                  letterSpacing: 2.0,
-                ),
-              ),
-              const SizedBox(height: 12),
-              Text(
-                'Professional Impact & Evolution',
-                style: Theme.of(context).textTheme.headlineMedium,
-                textAlign: TextAlign.center,
-              ),
-              const SizedBox(height: 64),
+          // Timeline List
+          ResponsiveBuilder(
+            builder: (context, sizingInformation) {
+              final isDesktop = sizingInformation.isDesktop;
 
-              // Timeline List
-              ListView.separated(
+              return ListView.separated(
                 shrinkWrap: true,
                 physics: const NeverScrollableScrollPhysics(),
                 itemCount: experiences.length,
@@ -62,8 +60,8 @@ class ExperienceSectionWidget extends StatelessWidget {
                   final isEven = index.isEven;
 
                   if (!isDesktop) {
-                    // Mobile Layout: simple left-bordered card
-                    return _ExperienceCardMobile(
+                    // Mobile / Tablet Layout: left-bordered card
+                    return ExperienceCardMobileWidget(
                       item: item,
                       icon: _getIconData(item.iconName),
                     );
@@ -76,7 +74,10 @@ class ExperienceSectionWidget extends StatelessWidget {
                       // Left Side
                       Expanded(
                         child: isEven
-                            ? _ExperienceContent(item: item, alignRight: true)
+                            ? ExperienceContentWidget(
+                                item: item,
+                                alignRight: true,
+                              )
                             : const SizedBox(),
                       ),
 
@@ -111,93 +112,18 @@ class ExperienceSectionWidget extends StatelessWidget {
                       // Right Side
                       Expanded(
                         child: !isEven
-                            ? _ExperienceContent(item: item, alignRight: false)
+                            ? ExperienceContentWidget(
+                                item: item,
+                                alignRight: false,
+                              )
                             : const SizedBox(),
                       ),
                     ],
                   );
                 },
-              ),
-            ],
+              );
+            },
           ),
-        ),
-      ),
-    );
-  }
-}
-
-class _ExperienceContent extends StatelessWidget {
-  final ExperienceEntity item;
-  final bool alignRight;
-
-  const _ExperienceContent({required this.item, required this.alignRight});
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: alignRight
-          ? CrossAxisAlignment.end
-          : CrossAxisAlignment.start,
-      children: [
-        Text(
-          item.period,
-          style: Theme.of(context).textTheme.labelLarge?.copyWith(
-            color: item.isHighlight ? AppColors.secondary : AppColors.primary,
-          ),
-        ),
-        const SizedBox(height: 8),
-        Text(
-          item.title,
-          style: Theme.of(context).textTheme.headlineSmall,
-          textAlign: alignRight ? TextAlign.right : TextAlign.left,
-        ),
-        const SizedBox(height: 12),
-        Text(
-          item.description,
-          style: Theme.of(context).textTheme.bodyMedium,
-          textAlign: alignRight ? TextAlign.right : TextAlign.left,
-        ),
-      ],
-    );
-  }
-}
-
-class _ExperienceCardMobile extends StatelessWidget {
-  final ExperienceEntity item;
-  final IconData icon;
-
-  const _ExperienceCardMobile({required this.item, required this.icon});
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.all(24),
-      decoration: BoxDecoration(
-        color: AppColors.surfaceContainer,
-        borderRadius: BorderRadius.circular(16),
-        border: Border.all(color: AppColors.outlineVariant),
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(
-                item.period,
-                style: Theme.of(context).textTheme.labelLarge?.copyWith(
-                  color: item.isHighlight
-                      ? AppColors.secondary
-                      : AppColors.primary,
-                ),
-              ),
-              Icon(icon, size: 20, color: AppColors.primary),
-            ],
-          ),
-          const SizedBox(height: 12),
-          Text(item.title, style: Theme.of(context).textTheme.headlineSmall),
-          const SizedBox(height: 12),
-          Text(item.description, style: Theme.of(context).textTheme.bodyMedium),
         ],
       ),
     );

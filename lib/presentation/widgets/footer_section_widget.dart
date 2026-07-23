@@ -1,30 +1,26 @@
 import 'package:flutter/material.dart';
-
-import 'shared/hover_tracking.dart';
+import 'package:responsive_builder/responsive_builder.dart';
 import '../../design_system/theme/app_colors.dart';
+import 'footer_link_widget.dart';
+import 'shared/responsive_section_widget.dart';
 
-class FooterSectionWidget extends StatelessWidget {
+final class FooterSectionWidget extends StatelessWidget {
   final Function(String sectionKey) onNavSelected;
 
   const FooterSectionWidget({super.key, required this.onNavSelected});
 
   @override
   Widget build(BuildContext context) {
-    final isDesktop = MediaQuery.sizeOf(context).width >= 768;
-    final paddingHorizontal = isDesktop ? 64.0 : 20.0;
+    return ResponsiveBuilder(
+      builder: (context, sizingInformation) {
+        final isDesktop = sizingInformation.isDesktop;
 
-    return Container(
-      padding: EdgeInsets.symmetric(
-        horizontal: paddingHorizontal,
-        vertical: 64,
-      ),
-      decoration: const BoxDecoration(
-        color: AppColors.background,
-        border: Border(top: BorderSide(color: AppColors.cardBorder)),
-      ),
-      child: Center(
-        child: Container(
-          constraints: const BoxConstraints(maxWidth: 1200),
+        return ResponsiveSectionWidget(
+          verticalPadding: 64,
+          decoration: const BoxDecoration(
+            color: AppColors.background,
+            border: Border(top: BorderSide(color: AppColors.cardBorder)),
+          ),
           child: Column(
             children: [
               Row(
@@ -61,13 +57,13 @@ class FooterSectionWidget extends StatelessWidget {
                   if (isDesktop)
                     Row(
                       children: [
-                        _FooterLink(title: 'LinkedIn', onTap: () {}),
+                        FooterLinkWidget(title: 'LinkedIn', onTap: () {}),
                         const SizedBox(width: 24),
-                        _FooterLink(title: 'GitHub', onTap: () {}),
+                        FooterLinkWidget(title: 'GitHub', onTap: () {}),
                         const SizedBox(width: 24),
-                        _FooterLink(title: 'GitLab', onTap: () {}),
+                        FooterLinkWidget(title: 'GitLab', onTap: () {}),
                         const SizedBox(width: 24),
-                        _FooterLink(
+                        FooterLinkWidget(
                           title: 'Contact',
                           onTap: () => onNavSelected('contact'),
                         ),
@@ -112,10 +108,10 @@ class FooterSectionWidget extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    _FooterLink(title: 'LinkedIn', onTap: () {}),
-                    _FooterLink(title: 'GitHub', onTap: () {}),
-                    _FooterLink(title: 'GitLab', onTap: () {}),
-                    _FooterLink(
+                    FooterLinkWidget(title: 'LinkedIn', onTap: () {}),
+                    FooterLinkWidget(title: 'GitHub', onTap: () {}),
+                    FooterLinkWidget(title: 'GitLab', onTap: () {}),
+                    FooterLinkWidget(
                       title: 'Contact',
                       onTap: () => onNavSelected('contact'),
                     ),
@@ -132,30 +128,8 @@ class FooterSectionWidget extends StatelessWidget {
               ],
             ],
           ),
-        ),
-      ),
-    );
-  }
-}
-
-class _FooterLink extends StatelessWidget {
-  final String title;
-  final VoidCallback onTap;
-
-  const _FooterLink({required this.title, required this.onTap});
-
-  @override
-  Widget build(BuildContext context) {
-    return HoverTracking(
-      builder: (context, isHovered) => GestureDetector(
-        onTap: onTap,
-        child: Text(
-          title,
-          style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-            color: isHovered ? AppColors.secondary : AppColors.onSurfaceVariant,
-          ),
-        ),
-      ),
+        );
+      },
     );
   }
 }
