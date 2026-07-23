@@ -1,0 +1,288 @@
+{
+  "experiences": [
+    {
+      "period": "MAY 2023 — PRESENT",
+      "title": "Senior Flutter Developer @ Troylab",
+      "description": "Analyzed user stories and converted them into TDD test cases. Applied Clean Architecture and modular design for maintainability. Extracted reusable components as standalone packages and refactored legacy codebases. Shipped releases across Android, iOS, Web, and Windows.",
+      "iconName": "corporate_fare",
+      "isHighlight": true
+    },
+    {
+      "period": "OCT 2021 — MAY 2023",
+      "title": "Mid-level Flutter Developer @ 5d-Agency",
+      "description": "Led test-driven feature development following modular design guidelines. Built AR demos using Apple ARKit and Google ARCore, creating a customized ARKit Flutter plugin for 3D models. Built CI/CD pipelines using Visual App Center and GitHub Actions.",
+      "iconName": "rocket_launch",
+      "isHighlight": false
+    },
+    {
+      "period": "OCT 2020 — JUL 2021",
+      "title": "Flutter Developer @ Agility Solutions",
+      "description": "Converted design files into responsive screens matching specifications precisely. Partnered with backend teams to define API contracts and response schemas. Published Android releases on the Google Play Store.",
+      "iconName": "devices",
+      "isHighlight": false
+    },
+    {
+      "period": "APR 2020 — SEP 2020",
+      "title": "Flutter Developer @ Q8intouch",
+      "description": "Selected architectural patterns based on feature requirements. Worked with backend teams to define API responses that matched feature requirements.",
+      "iconName": "devices",
+      "isHighlight": false
+    },
+    {
+      "period": "APR 2019 — MAR 2020",
+      "title": "Flutter Developer @ Smart Fingers",
+      "description": "Published applications on both Google Play Store and Apple App Store. Diagnosed and resolved app-store rejection issues before each release cycle. Built responsive interfaces from design files using established architectural patterns.",
+      "iconName": "devices",
+      "isHighlight": false
+    }
+  ],
+  "projects": [
+    {
+      "category": "On-Demand Commerce",
+      "title": "Speed Delivery",
+      "description": "On-demand commerce app for food and groceries with live order tracking.",
+      "iconName": "account_balance",
+      "appStoreUrl": "https://apps.apple.com/us/app/%D8%B3%D8%A8%D9%8A%D8%AF-%D8%AF%D9%84%D9%8A%D9%81%D8%B1%D9%8A/id6472154144?l=ar",
+      "googlePlayUrl": "https://play.google.com/store/apps/details?id=com.speeddelivery.app&hl=ar"
+    },
+    {
+      "category": "Merchant Logistics",
+      "title": "Speed Merchant",
+      "description": "Merchant app for order management on Speed Delivery.",
+      "iconName": "insights",
+      "appStoreUrl": "https://apps.apple.com/us/app/%D8%B3%D8%A8%D9%8A%D8%AF-%D8%AF%D9%84%D9%8A%D9%81%D8%B1%D9%8A-%D8%AA%D8%B7%D8%A8%D9%8A%D9%82-%D8%A7%D9%84%D8%A8%D8%A7%D8%A6%D8%B9/id6474730444?l=ar",
+      "googlePlayUrl": "https://play.google.com/store/apps/details?id=com.spdelivery.app&hl=ar"
+    },
+    {
+      "category": "Driver & Delivery",
+      "title": "Speed Driver",
+      "description": "Driver app for managing deliveries on Speed Delivery.",
+      "iconName": "insights",
+      "appStoreUrl": "https://apps.apple.com/us/app/%D8%B3%D8%A8%D9%8A%D8%AF-%D8%AF%D1%80%D8%A7%D9%8A%D9%81%D8%B1/id6474730756?l=ar",
+      "googlePlayUrl": "https://play.google.com/store/apps/details?id=com.sinbad.sinbad"
+    },
+    {
+      "category": "Ride-Hailing",
+      "title": "Alo Taxi",
+      "description": "Ride-hailing and package delivery app for passengers.",
+      "iconName": "account_balance",
+      "appStoreUrl": "https://apps.apple.com/us/app/alo-taxi-speed/id6503211790?l=ar",
+      "googlePlayUrl": "https://play.google.com/store/apps/details?id=app.taxi.alo"
+    },
+    {
+      "category": "Driver & Delivery",
+      "title": "Alo Taxi Driver",
+      "description": "Driver app for managing rides and deliveries on Alo Taxi.",
+      "iconName": "insights",
+      "appStoreUrl": "https://apps.apple.com/us/app/alo-taxi-driver/id6503222884?l=ar",
+      "googlePlayUrl": "https://play.google.com/store/apps/details?id=driver.taxi.alo"
+    },
+    {
+      "category": "AI & Fashion",
+      "title": "Artablak",
+      "description": "AI-powered bespoke tailoring app with custom measurements and AI-generated patterns.",
+      "iconName": "insights",
+      "appStoreUrl": "https://apps.apple.com/us/app/artablak/id6753711788",
+      "googlePlayUrl": ""
+    },
+    {
+      "category": "On-Demand Commerce",
+      "title": "Cozmo One",
+      "description": "On-demand commerce app for groceries, restaurants, and water delivery.",
+      "iconName": "account_balance",
+      "appStoreUrl": "https://apps.apple.com/us/app/cozmo-one/id6749200149",
+      "googlePlayUrl": "https://play.google.com/store/apps/details?id=app.cozmoone.user&hl=en"
+    },
+    {
+      "category": "Merchant Operations",
+      "title": "Cozmo One Merchant",
+      "description": "Merchant app for managing listings and orders on Cozmo One.",
+      "iconName": "insights",
+      "appStoreUrl": "https://apps.apple.com/us/app/cozmo-one-merchant/id6749200210",
+      "googlePlayUrl": "https://play.google.com/store/apps/details?id=app.cozmoone.merchant&hl=en"
+    },
+    {
+      "category": "Driver & Delivery",
+      "title": "Cozmo One Driver",
+      "description": "Driver app for managing deliveries on Cozmo One.",
+      "iconName": "insights",
+      "appStoreUrl": "https://apps.apple.com/us/app/cozmo-one-driver/id6749200288",
+      "googlePlayUrl": "https://play.google.com/store/apps/details?id=app.cozmoone.driver&hl=en"
+    },
+    {
+      "category": "Marketplace",
+      "title": "Femalea",
+      "description": "Multi-service marketplace for groceries, restaurants, and water delivery.",
+      "iconName": "account_balance",
+      "appStoreUrl": "https://apps.apple.com/us/app/femalea/id6737061240",
+      "googlePlayUrl": "https://play.google.com/store/apps/details?id=app.femalea.client"
+    },
+    {
+      "category": "Merchant Operations",
+      "title": "Femalea Merchant",
+      "description": "Merchant app for inventory and order management on Femalea.",
+      "iconName": "insights",
+      "appStoreUrl": "https://apps.apple.com/us/app/femalea-merchant/id6737065684",
+      "googlePlayUrl": ""
+    },
+    {
+      "category": "E-Commerce",
+      "title": "Bespoke Coffee",
+      "description": "E-commerce app for premium coffee and honey products.",
+      "iconName": "insights",
+      "appStoreUrl": "",
+      "googlePlayUrl": ""
+    },
+    {
+      "category": "Merchant Operations",
+      "title": "Bespoke Merchant",
+      "description": "Merchant app for sellers on Bespoke Coffee.",
+      "iconName": "insights",
+      "appStoreUrl": "",
+      "googlePlayUrl": ""
+    },
+    {
+      "category": "Marketplace",
+      "title": "Otelat",
+      "description": "Online shopping marketplace for customers.",
+      "iconName": "account_balance",
+      "appStoreUrl": "https://apps.apple.com/eg/app/otelat/id6502847375",
+      "googlePlayUrl": "https://play.google.com/store/apps/details?id=com.otelat.user"
+    },
+    {
+      "category": "Merchant Operations",
+      "title": "Otelat Merchant",
+      "description": "Merchant app for store operations on Otelat.",
+      "iconName": "insights",
+      "appStoreUrl": "https://apps.apple.com/eg/app/otelat-merchant/id6503255307",
+      "googlePlayUrl": ""
+    },
+    {
+      "category": "E-Commerce",
+      "title": "Fresh Food",
+      "description": "Online store for fresh fruits and vegetables.",
+      "iconName": "insights",
+      "appStoreUrl": "https://apps.apple.com/us/app/fresh-food/id1603985412",
+      "googlePlayUrl": ""
+    },
+    {
+      "category": "Fintech Ecosystem",
+      "title": "Abkhus",
+      "description": "Digital e-wallet application.",
+      "iconName": "account_balance",
+      "appStoreUrl": "https://apps.apple.com/us/app/abkhus-%D8%A3%D8%A8%D8%AE%D8%B5/id1583847415",
+      "googlePlayUrl": ""
+    },
+    {
+      "category": "E-Commerce",
+      "title": "CUTZ",
+      "description": "Online store for fresh meat, poultry, and seafood.",
+      "iconName": "insights",
+      "appStoreUrl": "",
+      "googlePlayUrl": ""
+    },
+    {
+      "category": "HealthTech Innovation",
+      "title": "Future Lab",
+      "description": "Medical consultation and diagnostic test booking app.",
+      "iconName": "insights",
+      "appStoreUrl": "",
+      "googlePlayUrl": ""
+    },
+    {
+      "category": "Travel & Tourism",
+      "title": "Doha Oryx",
+      "description": "Travel booking app for visitors to Qatar.",
+      "iconName": "insights",
+      "appStoreUrl": "",
+      "googlePlayUrl": "https://play.google.com/store/apps/details?id=com.troylab.tourismApp"
+    },
+    {
+      "category": "AI & Machine Learning",
+      "title": "Handwritten Text Recognition",
+      "description": "AI system using TrOCR and CRAFT to transcribe handwritten text via a FastAPI WebSocket service.",
+      "iconName": "insights",
+      "appStoreUrl": "",
+      "googlePlayUrl": ""
+    }
+  ],
+  "skills": [
+    {
+      "title": "Flutter & Dart",
+      "iconName": "flutter",
+      "isSecondaryColor": false
+    },
+    {
+      "title": "Clean Architecture",
+      "iconName": "architecture",
+      "isSecondaryColor": true
+    },
+    {
+      "title": "Test-Driven Dev (TDD)",
+      "iconName": "rule",
+      "isSecondaryColor": false
+    },
+    {
+      "title": "ARKit & ARCore",
+      "iconName": "build_circle",
+      "isSecondaryColor": false
+    },
+    {
+      "title": "CI/CD & DevOps",
+      "iconName": "build_circle",
+      "isSecondaryColor": true
+    },
+    {
+      "title": "AI & Machine Learning",
+      "iconName": "hub",
+      "isSecondaryColor": false
+    },
+    {
+      "title": "State Management (Bloc)",
+      "iconName": "architecture",
+      "isSecondaryColor": true
+    }
+  ],
+  "readings": [
+    {
+      "title": "Elegant Objects",
+      "author": "Yegor Bugayenko",
+      "imagePath": "assets/images/book_placeholder.png"
+    },
+    {
+      "title": "Test Driven Development",
+      "author": "Kent Beck",
+      "imagePath": "assets/images/book_placeholder.png"
+    },
+    {
+      "title": "Refactoring",
+      "author": "Martin Fowler",
+      "imagePath": "assets/images/book_placeholder.png"
+    },
+    {
+      "title": "Clean Code",
+      "author": "Robert C. Martin",
+      "imagePath": "assets/images/book_placeholder.png"
+    },
+    {
+      "title": "Get your hands dirty with Clean Architecture",
+      "author": "Tom Hombergs",
+      "imagePath": "assets/images/book_placeholder.png"
+    },
+    {
+      "title": "Adaptive Code (SOLID)",
+      "author": "Gary McLean Hall",
+      "imagePath": "assets/images/book_placeholder.png"
+    },
+    {
+      "title": "Refactoring Guru",
+      "author": "Alexander Shvets",
+      "imagePath": "assets/images/book_placeholder.png"
+    },
+    {
+      "title": "Head First Design Patterns",
+      "author": "Freeman & Robson",
+      "imagePath": "assets/images/book_placeholder.png"
+    }
+  ]
+}
