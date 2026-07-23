@@ -39,13 +39,10 @@ class HeroSectionWidget extends StatelessWidget {
                     Text(
                       'STRATEGIC MOBILE ENGINEERING',
                       style: Theme.of(context).textTheme.labelLarge?.copyWith(
-                        color: AppColors.secondary,
+                        color: AppColors.gold,
                         letterSpacing: 2.0,
                         shadows: [
-                          const Shadow(
-                            color: AppColors.goldGlow,
-                            blurRadius: 20,
-                          ),
+                          const Shadow(color: AppColors.gold, blurRadius: 20),
                         ],
                       ),
                     ),

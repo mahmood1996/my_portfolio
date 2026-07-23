@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:portfolio/design_system/asset_paths/app_assets.dart';
+import 'package:portfolio/design_system/theme/app_fonts.dart';
 import 'shared/hover_tracking.dart';
 import '../../design_system/theme/app_colors.dart';
 import '../bloc/portfolio_bloc.dart';
@@ -32,8 +32,22 @@ class NavBarWidget extends StatelessWidget implements PreferredSizeWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              // Logo
-              Image.asset(AppAssets.signature),
+              Flexible(
+                child: Text(
+                  'Mahmood Abdelrazek Ali',
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                  style: Theme.of(context).textTheme.headlineMedium?.copyWith(
+                    color: AppColors.gold,
+                    fontFamily: AppFonts.allura,
+                    fontWeight: FontWeight.w600,
+                    letterSpacing: 1,
+                    shadows: [
+                      const Shadow(color: AppColors.gold, blurRadius: 30),
+                    ],
+                  ),
+                ),
+              ),
 
               // Desktop Links
               if (isDesktop)
@@ -104,6 +118,7 @@ class NavBarWidget extends StatelessWidget implements PreferredSizeWidget {
                       ),
                     ),
                   ),
+
                   if (!isDesktop)
                     PopupMenuButton<String>(
                       icon: const Icon(Icons.menu, color: AppColors.onSurface),

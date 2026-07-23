@@ -17,7 +17,7 @@ class ProjectsSectionWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final isDesktop = MediaQuery.of(context).size.width >= 768;
+    final isDesktop = MediaQuery.of(context).size.width >= 900;
     final paddingHorizontal = isDesktop ? 64.0 : 20.0;
 
     return Container(

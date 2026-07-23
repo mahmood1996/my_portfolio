@@ -4,6 +4,7 @@ import 'package:portfolio/main.dart';
 void main() {
   testWidgets('Portfolio app smoke test', (WidgetTester tester) async {
     await tester.pumpWidget(const PortfolioApp());
-    expect(find.text('DevExpert'), findsOneWidget);
+    expect(find.text('Download CV'), findsOneWidget);
   });
 }
+
