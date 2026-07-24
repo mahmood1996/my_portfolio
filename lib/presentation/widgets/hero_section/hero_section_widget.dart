@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:responsive_builder/responsive_builder.dart';
+import '../../../l10n/app_localizations.dart';
 import '../../../design_system/asset_paths/app_assets.dart';
 import '../../../design_system/theme/app_colors.dart';
 import '../shared/responsive_section_widget.dart';
@@ -16,6 +17,8 @@ final class HeroSectionWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
+
     return ResponsiveBuilder(
       builder: (context, sizingInformation) {
         final isDesktop = sizingInformation.isDesktop;
@@ -35,7 +38,7 @@ final class HeroSectionWidget extends StatelessWidget {
                   children: [
                     // Tagline
                     Text(
-                      'STRATEGIC MOBILE ENGINEERING',
+                      l10n.heroTagline,
                       style: Theme.of(context).textTheme.labelLarge?.copyWith(
                         color: AppColors.gold,
                         letterSpacing: 2.0,
@@ -52,11 +55,11 @@ final class HeroSectionWidget extends StatelessWidget {
                         style: isDesktop
                             ? Theme.of(context).textTheme.displayLarge
                             : Theme.of(context).textTheme.displayMedium,
-                        children: const [
-                          TextSpan(text: 'Building High-Performance '),
+                        children: [
+                          TextSpan(text: l10n.heroHeadlinePart1),
                           TextSpan(
-                            text: 'Mobile Experiences',
-                            style: TextStyle(color: AppColors.primary),
+                            text: l10n.heroHeadlinePart2,
+                            style: const TextStyle(color: AppColors.primary),
                           ),
                         ],
                       ),
@@ -65,7 +68,7 @@ final class HeroSectionWidget extends StatelessWidget {
 
                     // Bio Text
                     Text(
-                      'I specialize in architecting resilient, scalable Flutter applications for enterprise ecosystems. My approach bridges executive vision with high-fidelity technical execution.',
+                      l10n.heroBio,
                       style: Theme.of(context).textTheme.bodyLarge,
                     ),
                     const SizedBox(height: 36),
@@ -89,18 +92,18 @@ final class HeroSectionWidget extends StatelessWidget {
                             ),
                             elevation: 0,
                           ),
-                          child: const Row(
+                          child: Row(
                             mainAxisSize: MainAxisSize.min,
                             children: [
                               Text(
-                                'Explore My Work',
-                                style: TextStyle(
+                                l10n.heroExploreWork,
+                                style: const TextStyle(
                                   fontWeight: FontWeight.bold,
                                   fontSize: 16,
                                 ),
                               ),
-                              SizedBox(width: 8),
-                              Icon(Icons.arrow_forward, size: 20),
+                              const SizedBox(width: 8),
+                              const Icon(Icons.arrow_forward, size: 20),
                             ],
                           ),
                         ),
@@ -119,9 +122,9 @@ final class HeroSectionWidget extends StatelessWidget {
                               borderRadius: BorderRadius.circular(12),
                             ),
                           ),
-                          child: const Text(
-                            'Partner With Me',
-                            style: TextStyle(
+                          child: Text(
+                            l10n.heroPartnerWithMe,
+                            style: const TextStyle(
                               fontWeight: FontWeight.bold,
                               fontSize: 16,
                             ),

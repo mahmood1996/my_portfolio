@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../../l10n/app_localizations.dart';
 import '../../../design_system/theme/app_colors.dart';
 import '../../../domain/entities/skill_entity.dart';
 import '../shared/responsive_section_widget.dart';
@@ -11,13 +12,15 @@ final class SkillsSectionWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
+
     return ResponsiveSectionWidget(
       backgroundColor: AppColors.surfaceContainer,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            'METHODOLOGY',
+            l10n.skillsSectionTag,
             style: Theme.of(context).textTheme.labelLarge?.copyWith(
               color: AppColors.primary,
               letterSpacing: 2.0,
@@ -25,14 +28,14 @@ final class SkillsSectionWidget extends StatelessWidget {
           ),
           const SizedBox(height: 12),
           Text(
-            'Expertise in Strategic Engineering',
+            l10n.skillsSectionTitle,
             style: Theme.of(context).textTheme.headlineMedium,
           ),
           const SizedBox(height: 16),
           ConstrainedBox(
             constraints: const BoxConstraints(maxWidth: 600),
             child: Text(
-              'My toolkit is curated for high-impact enterprise solutions, focusing on reliability, speed, and long-term maintainability.',
+              l10n.skillsSectionSubtitle,
               style: Theme.of(context).textTheme.bodyLarge,
             ),
           ),

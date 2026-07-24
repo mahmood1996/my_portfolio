@@ -22,19 +22,21 @@ final class SliverResponsiveBuilder extends StatelessWidget {
   Widget build(BuildContext context) {
     return SliverLayoutBuilder(
       builder: (context, constraints) {
-        var mediaQuery = MediaQuery.of(context);
-        var sizingInformation = SizingInformation(
-          deviceScreenType: getDeviceType(mediaQuery.size, breakpoints),
+        final size = MediaQuery.sizeOf(context);
+
+        final sizingInformation = SizingInformation(
+          deviceScreenType: getDeviceType(size, breakpoints),
           refinedSize: getRefinedSize(
-            mediaQuery.size,
+            size,
             refinedBreakpoint: refinedBreakpoints,
           ),
-          screenSize: mediaQuery.size,
+          screenSize: size,
           localWidgetSize: Size(
             constraints.crossAxisExtent,
             constraints.viewportMainAxisExtent,
           ),
         );
+
         return builder(context, sizingInformation);
       },
     );

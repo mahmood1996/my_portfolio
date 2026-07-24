@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../../l10n/app_localizations.dart';
 
 import '../../../design_system/theme/app_colors.dart';
 import '../../../domain/entities/project_entity.dart';
@@ -14,6 +15,8 @@ final class SliverProjectsSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
+
     return SliverResponsiveSection(
       decoration: const BoxDecoration(
         border: Border(top: BorderSide(color: AppColors.sectionBorder)),
@@ -23,7 +26,7 @@ final class SliverProjectsSection extends StatelessWidget {
           // Header
           SliverToBoxAdapter(
             child: Text(
-              'PORTFOLIO',
+              l10n.projectsSectionTag,
               style: Theme.of(context).textTheme.labelLarge?.copyWith(
                 color: AppColors.secondary,
                 letterSpacing: 2.0,
@@ -33,7 +36,7 @@ final class SliverProjectsSection extends StatelessWidget {
           const SliverToBoxAdapter(child: SizedBox(height: 12)),
           SliverToBoxAdapter(
             child: Text(
-              'Featured Solutions',
+              l10n.projectsSectionTitle,
               style: Theme.of(context).textTheme.headlineMedium,
             ),
           ),
@@ -42,7 +45,7 @@ final class SliverProjectsSection extends StatelessWidget {
             child: ConstrainedBox(
               constraints: const BoxConstraints(maxWidth: 600),
               child: Text(
-                'A selection of high-impact applications where architectural precision meets exceptional user experience.',
+                l10n.projectsSectionSubtitle,
                 style: Theme.of(context).textTheme.bodyLarge,
               ),
             ),
@@ -53,7 +56,7 @@ final class SliverProjectsSection extends StatelessWidget {
           SliverResponsiveBuilder(
             builder: (context, sizingInformation) {
               final isDesktop = sizingInformation.isDesktop;
-              final crossAxisCount = isDesktop ? 2 : 1;
+              final crossAxisCount = isDesktop ? 3 : 1;
 
               return SliverGrid.builder(
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(

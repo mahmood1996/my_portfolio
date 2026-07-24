@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:responsive_builder/responsive_builder.dart';
+import '../../../l10n/app_localizations.dart';
 import '../../../design_system/theme/app_colors.dart';
 import '../../../domain/entities/contact_inquiry.dart';
 import '../../bloc/portfolio_bloc.dart';
@@ -42,6 +43,8 @@ final class _ContactSectionWidgetState extends State<ContactSectionWidget> {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
+
     return ResponsiveBuilder(
       builder: (context, sizingInformation) {
         final isDesktop = sizingInformation.isDesktop;
@@ -58,7 +61,7 @@ final class _ContactSectionWidgetState extends State<ContactSectionWidget> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'ENGAGEMENT',
+                      l10n.contactSectionTag,
                       style: Theme.of(context).textTheme.labelLarge?.copyWith(
                         color: AppColors.primary,
                         letterSpacing: 2.0,
@@ -66,12 +69,12 @@ final class _ContactSectionWidgetState extends State<ContactSectionWidget> {
                     ),
                     const SizedBox(height: 12),
                     Text(
-                      "Let's Discuss Your Strategic Vision",
+                      l10n.contactSectionTitle,
                       style: Theme.of(context).textTheme.headlineMedium,
                     ),
                     const SizedBox(height: 16),
                     Text(
-                      'Currently open to architectural consulting and high-impact partnership opportunities.',
+                      l10n.contactSectionSubtitle,
                       style: Theme.of(context).textTheme.bodyLarge,
                     ),
                     const SizedBox(height: 48),
@@ -102,13 +105,13 @@ final class _ContactSectionWidgetState extends State<ContactSectionWidget> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              'EMAIL',
+                              l10n.emailLabel,
                               style: Theme.of(context).textTheme.labelLarge
                                   ?.copyWith(color: AppColors.onSurfaceVariant),
                             ),
                             const SizedBox(height: 4),
                             Text(
-                              'strategy@devexpert.io',
+                              l10n.emailValue,
                               style: Theme.of(context).textTheme.bodyLarge
                                   ?.copyWith(
                                     color: AppColors.onSurface,
@@ -147,13 +150,13 @@ final class _ContactSectionWidgetState extends State<ContactSectionWidget> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              'LOCATION',
+                              l10n.locationLabel,
                               style: Theme.of(context).textTheme.labelLarge
                                   ?.copyWith(color: AppColors.onSurfaceVariant),
                             ),
                             const SizedBox(height: 4),
                             Text(
-                              'Global Architecture | remote',
+                              l10n.locationValue,
                               style: Theme.of(context).textTheme.bodyLarge
                                   ?.copyWith(
                                     color: AppColors.onSurface,
@@ -171,7 +174,7 @@ final class _ContactSectionWidgetState extends State<ContactSectionWidget> {
               if (isDesktop) const SizedBox(width: 64),
 
               // Right Form Column
-              if (isDesktop) Expanded(flex: 7, child: _buildForm(context)),
+              if (isDesktop) Expanded(flex: 7, child: _buildForm(context, l10n)),
             ],
           ),
         );
@@ -179,7 +182,7 @@ final class _ContactSectionWidgetState extends State<ContactSectionWidget> {
     );
   }
 
-  Widget _buildForm(BuildContext context) {
+  Widget _buildForm(BuildContext context, AppLocalizations l10n) {
     return BlocConsumer<PortfolioBloc, PortfolioState>(
       listener: (context, state) {
         if (state.inquiryStatus == InquiryStatus.success) {
@@ -188,7 +191,7 @@ final class _ContactSectionWidgetState extends State<ContactSectionWidget> {
           _summaryController.clear();
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
-              content: Text(state.inquiryMessage ?? 'Inquiry Sent!'),
+              content: Text(state.inquiryMessage ?? l10n.inquirySentDefault),
               backgroundColor: AppColors.primaryContainer,
             ),
           );
@@ -216,7 +219,7 @@ final class _ContactSectionWidgetState extends State<ContactSectionWidget> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            'FULL NAME',
+                            l10n.formFullNameLabel,
                             style: Theme.of(context).textTheme.labelLarge
                                 ?.copyWith(color: AppColors.onSurfaceVariant),
                           ),
@@ -224,22 +227,22 @@ final class _ContactSectionWidgetState extends State<ContactSectionWidget> {
                           TextFormField(
                             controller: _nameController,
                             style: const TextStyle(color: AppColors.onSurface),
-                            decoration: const InputDecoration(
-                              hintText: 'John Doe',
-                              hintStyle: TextStyle(color: AppColors.outline),
-                              enabledBorder: UnderlineInputBorder(
+                            decoration: InputDecoration(
+                              hintText: l10n.formFullNameHint,
+                              hintStyle: const TextStyle(color: AppColors.outline),
+                              enabledBorder: const UnderlineInputBorder(
                                 borderSide: BorderSide(
                                   color: AppColors.outlineVariant,
                                 ),
                               ),
-                              focusedBorder: UnderlineInputBorder(
+                              focusedBorder: const UnderlineInputBorder(
                                 borderSide: BorderSide(
                                   color: AppColors.primary,
                                 ),
                               ),
                             ),
                             validator: (val) =>
-                                val == null || val.isEmpty ? 'Required' : null,
+                                val == null || val.isEmpty ? l10n.formFieldRequired : null,
                           ),
                         ],
                       ),
@@ -250,7 +253,7 @@ final class _ContactSectionWidgetState extends State<ContactSectionWidget> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            'CORPORATE EMAIL',
+                            l10n.formCorporateEmailLabel,
                             style: Theme.of(context).textTheme.labelLarge
                                 ?.copyWith(color: AppColors.onSurfaceVariant),
                           ),
@@ -258,15 +261,15 @@ final class _ContactSectionWidgetState extends State<ContactSectionWidget> {
                           TextFormField(
                             controller: _emailController,
                             style: const TextStyle(color: AppColors.onSurface),
-                            decoration: const InputDecoration(
-                              hintText: 'john@company.com',
-                              hintStyle: TextStyle(color: AppColors.outline),
-                              enabledBorder: UnderlineInputBorder(
+                            decoration: InputDecoration(
+                              hintText: l10n.formCorporateEmailHint,
+                              hintStyle: const TextStyle(color: AppColors.outline),
+                              enabledBorder: const UnderlineInputBorder(
                                 borderSide: BorderSide(
                                   color: AppColors.outlineVariant,
                                 ),
                               ),
-                              focusedBorder: UnderlineInputBorder(
+                              focusedBorder: const UnderlineInputBorder(
                                 borderSide: BorderSide(
                                   color: AppColors.primary,
                                 ),
@@ -274,7 +277,7 @@ final class _ContactSectionWidgetState extends State<ContactSectionWidget> {
                             ),
                             validator: (val) =>
                                 val == null || !val.contains('@')
-                                ? 'Enter valid email'
+                                ? l10n.formEmailInvalid
                                 : null,
                           ),
                         ],
@@ -284,7 +287,7 @@ final class _ContactSectionWidgetState extends State<ContactSectionWidget> {
                 ),
                 const SizedBox(height: 32),
                 Text(
-                  'PROJECT SUMMARY',
+                  l10n.formProjectSummaryLabel,
                   style: Theme.of(context).textTheme.labelLarge?.copyWith(
                     color: AppColors.onSurfaceVariant,
                   ),
@@ -294,14 +297,13 @@ final class _ContactSectionWidgetState extends State<ContactSectionWidget> {
                   controller: _summaryController,
                   maxLines: 4,
                   style: const TextStyle(color: AppColors.onSurface),
-                  decoration: const InputDecoration(
-                    hintText:
-                        'How can I help you scale your mobile infrastructure?',
-                    hintStyle: TextStyle(color: AppColors.outline),
-                    enabledBorder: UnderlineInputBorder(
+                  decoration: InputDecoration(
+                    hintText: l10n.formProjectSummaryHint,
+                    hintStyle: const TextStyle(color: AppColors.outline),
+                    enabledBorder: const UnderlineInputBorder(
                       borderSide: BorderSide(color: AppColors.outlineVariant),
                     ),
-                    focusedBorder: UnderlineInputBorder(
+                    focusedBorder: const UnderlineInputBorder(
                       borderSide: BorderSide(color: AppColors.primary),
                     ),
                   ),
@@ -329,9 +331,9 @@ final class _ContactSectionWidgetState extends State<ContactSectionWidget> {
                               strokeWidth: 2,
                             ),
                           )
-                        : const Text(
-                            'Send Strategic Inquiry',
-                            style: TextStyle(
+                        : Text(
+                            l10n.sendStrategicInquiry,
+                            style: const TextStyle(
                               fontWeight: FontWeight.bold,
                               fontSize: 16,
                             ),
