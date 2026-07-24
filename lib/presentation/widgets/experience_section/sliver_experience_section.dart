@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../../l10n/app_localizations.dart';
 
 import '../../../design_system/theme/app_colors.dart';
 import '../../../domain/entities/experience_entity.dart';
@@ -15,13 +16,15 @@ final class SliverExperienceSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
+
     return SliverResponsiveSection(
       sliver: SliverMainAxisGroup(
         slivers: [
           // Header
           SliverToBoxAdapter(
             child: Text(
-              'MY JOURNEY',
+              l10n.experienceSectionTag,
               textAlign: TextAlign.center,
               style: Theme.of(context).textTheme.labelLarge?.copyWith(
                 color: AppColors.primary,
@@ -34,7 +37,7 @@ final class SliverExperienceSection extends StatelessWidget {
 
           SliverToBoxAdapter(
             child: Text(
-              'Professional Impact & Evolution',
+              l10n.experienceSectionTitle,
               style: Theme.of(context).textTheme.headlineMedium,
               textAlign: TextAlign.center,
             ),

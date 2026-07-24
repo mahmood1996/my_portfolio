@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:responsive_builder/responsive_builder.dart';
+import '../../../l10n/app_localizations.dart';
 import '../../../design_system/theme/app_colors.dart';
 import 'footer_link_widget.dart';
 import '../shared/responsive_section_widget.dart';
@@ -11,6 +12,8 @@ final class FooterSectionWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
+
     return ResponsiveBuilder(
       builder: (context, sizingInformation) {
         final isDesktop = sizingInformation.isDesktop;
@@ -34,7 +37,7 @@ final class FooterSectionWidget extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          'SENIOR FLUTTER ARCHITECT',
+                          l10n.footerRole,
                           style: Theme.of(context).textTheme.labelLarge
                               ?.copyWith(
                                 color: AppColors.onSurfaceVariant,
@@ -45,7 +48,7 @@ final class FooterSectionWidget extends StatelessWidget {
                         ConstrainedBox(
                           constraints: const BoxConstraints(maxWidth: 320),
                           child: Text(
-                            'Building the future of enterprise mobile development through strategic engineering.',
+                            l10n.footerTagline,
                             style: Theme.of(context).textTheme.bodyMedium,
                           ),
                         ),
@@ -57,14 +60,14 @@ final class FooterSectionWidget extends StatelessWidget {
                   if (isDesktop)
                     Row(
                       children: [
-                        FooterLinkWidget(title: 'LinkedIn', onTap: () {}),
+                        FooterLinkWidget(title: l10n.socialLinkedIn, onTap: () {}),
                         const SizedBox(width: 24),
-                        FooterLinkWidget(title: 'GitHub', onTap: () {}),
+                        FooterLinkWidget(title: l10n.socialGitHub, onTap: () {}),
                         const SizedBox(width: 24),
-                        FooterLinkWidget(title: 'GitLab', onTap: () {}),
+                        FooterLinkWidget(title: l10n.socialGitLab, onTap: () {}),
                         const SizedBox(width: 24),
                         FooterLinkWidget(
-                          title: 'Contact',
+                          title: l10n.navContact,
                           onTap: () => onNavSelected('contact'),
                         ),
                       ],
@@ -76,7 +79,7 @@ final class FooterSectionWidget extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.end,
                       children: [
                         Text(
-                          '© 2024 Senior Flutter Architect. All rights reserved.',
+                          l10n.footerCopyright,
                           style: Theme.of(context).textTheme.labelLarge
                               ?.copyWith(color: AppColors.onSurfaceVariant),
                         ),
@@ -108,18 +111,18 @@ final class FooterSectionWidget extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    FooterLinkWidget(title: 'LinkedIn', onTap: () {}),
-                    FooterLinkWidget(title: 'GitHub', onTap: () {}),
-                    FooterLinkWidget(title: 'GitLab', onTap: () {}),
+                    FooterLinkWidget(title: l10n.socialLinkedIn, onTap: () {}),
+                    FooterLinkWidget(title: l10n.socialGitHub, onTap: () {}),
+                    FooterLinkWidget(title: l10n.socialGitLab, onTap: () {}),
                     FooterLinkWidget(
-                      title: 'Contact',
+                      title: l10n.navContact,
                       onTap: () => onNavSelected('contact'),
                     ),
                   ],
                 ),
                 const SizedBox(height: 24),
                 Text(
-                  '© 2024 Senior Flutter Architect. All rights reserved.',
+                  l10n.footerCopyright,
                   style: Theme.of(context).textTheme.labelLarge?.copyWith(
                     color: AppColors.onSurfaceVariant,
                   ),

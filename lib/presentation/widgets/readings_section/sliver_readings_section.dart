@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:responsive_builder/responsive_builder.dart';
+import '../../../l10n/app_localizations.dart';
 
 import '../../../design_system/theme/app_colors.dart';
 import '../../../domain/entities/reading_entity.dart';
@@ -15,12 +16,14 @@ final class SliverReadingsSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
+
     return SliverResponsiveSection(
       sliver: SliverMainAxisGroup(
         slivers: [
           SliverToBoxAdapter(
             child: Text(
-              'INTELLECTUAL GROWTH',
+              l10n.readingsSectionTag,
               style: Theme.of(context).textTheme.labelLarge?.copyWith(
                 color: AppColors.secondary,
                 letterSpacing: 2.0,
@@ -28,25 +31,25 @@ final class SliverReadingsSection extends StatelessWidget {
             ),
           ),
 
-          SliverToBoxAdapter(child: SizedBox(height: 12)),
+          const SliverToBoxAdapter(child: SizedBox(height: 12)),
 
           SliverToBoxAdapter(
             child: Text(
-              'Curated Professional Readings',
+              l10n.readingsSectionTitle,
               style: Theme.of(context).textTheme.headlineMedium,
             ),
           ),
 
-          SliverToBoxAdapter(child: SizedBox(height: 64)),
+          const SliverToBoxAdapter(child: SizedBox(height: 64)),
 
           // Grid
           SliverResponsiveBuilder(
             builder: (context, sizingInformation) {
               final crossAxisCount = getValueForScreenType<int>(
                 context: context,
-                mobile: 1,
-                tablet: 2,
-                desktop: 4,
+                mobile: 2,
+                tablet: 3,
+                desktop: 5,
               );
 
               return SliverGrid.builder(

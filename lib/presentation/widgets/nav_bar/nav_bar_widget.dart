@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:responsive_builder/responsive_builder.dart';
+import '../../../l10n/app_localizations.dart';
 import '../../../design_system/theme/app_colors.dart';
 import '../../../design_system/theme/app_fonts.dart';
 import '../../bloc/portfolio_bloc.dart';
@@ -17,6 +18,8 @@ final class NavBarWidget extends StatelessWidget implements PreferredSizeWidget 
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
+
     return ResponsiveBuilder(
       builder: (context, sizingInformation) {
         final isDesktop = sizingInformation.isDesktop;
@@ -43,7 +46,7 @@ final class NavBarWidget extends StatelessWidget implements PreferredSizeWidget 
                 children: [
                   Flexible(
                     child: Text(
-                      'Mahmood Abdelrazek Ali',
+                      l10n.authorName,
                       maxLines: 1,
                       overflow: TextOverflow.ellipsis,
                       style: Theme.of(context).textTheme.headlineMedium?.copyWith(
@@ -67,32 +70,32 @@ final class NavBarWidget extends StatelessWidget implements PreferredSizeWidget 
                           mainAxisSize: MainAxisSize.min,
                           children: [
                             NavLinkWidget(
-                              title: 'About',
+                              title: l10n.navAbout,
                               onTap: () => onNavSelected('about'),
                             ),
                             const SizedBox(width: 24),
                             NavLinkWidget(
-                              title: 'Experience',
+                              title: l10n.navExperience,
                               onTap: () => onNavSelected('experience'),
                             ),
                             const SizedBox(width: 24),
                             NavLinkWidget(
-                              title: 'Projects',
+                              title: l10n.navProjects,
                               onTap: () => onNavSelected('projects'),
                             ),
                             const SizedBox(width: 24),
                             NavLinkWidget(
-                              title: 'Skills',
+                              title: l10n.navSkills,
                               onTap: () => onNavSelected('skills'),
                             ),
                             const SizedBox(width: 24),
                             NavLinkWidget(
-                              title: 'Readings',
+                              title: l10n.navReadings,
                               onTap: () => onNavSelected('readings'),
                             ),
                             const SizedBox(width: 24),
                             NavLinkWidget(
-                              title: 'Contact',
+                              title: l10n.navContact,
                               onTap: () => onNavSelected('contact'),
                             ),
                           ],
@@ -119,9 +122,9 @@ final class NavBarWidget extends StatelessWidget implements PreferredSizeWidget 
                           ),
                           elevation: 0,
                         ),
-                        child: const Text(
-                          'Download CV',
-                          style: TextStyle(
+                        child: Text(
+                          l10n.downloadCv,
+                          style: const TextStyle(
                             fontWeight: FontWeight.bold,
                             fontSize: 14,
                           ),
@@ -134,29 +137,29 @@ final class NavBarWidget extends StatelessWidget implements PreferredSizeWidget 
                           color: AppColors.surfaceContainerHigh,
                           onSelected: onNavSelected,
                           itemBuilder: (context) => [
-                            const PopupMenuItem(
+                            PopupMenuItem(
                               value: 'about',
-                              child: Text('About'),
+                              child: Text(l10n.navAbout),
                             ),
-                            const PopupMenuItem(
+                            PopupMenuItem(
                               value: 'experience',
-                              child: Text('Experience'),
+                              child: Text(l10n.navExperience),
                             ),
-                            const PopupMenuItem(
+                            PopupMenuItem(
                               value: 'projects',
-                              child: Text('Projects'),
+                              child: Text(l10n.navProjects),
                             ),
-                            const PopupMenuItem(
+                            PopupMenuItem(
                               value: 'skills',
-                              child: Text('Skills'),
+                              child: Text(l10n.navSkills),
                             ),
-                            const PopupMenuItem(
+                            PopupMenuItem(
                               value: 'readings',
-                              child: Text('Readings'),
+                              child: Text(l10n.navReadings),
                             ),
-                            const PopupMenuItem(
+                            PopupMenuItem(
                               value: 'contact',
-                              child: Text('Contact'),
+                              child: Text(l10n.navContact),
                             ),
                           ],
                         ),
