@@ -36,7 +36,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get downloadCv => 'Download CV';
 
   @override
-  String get heroTagline => 'STRATEGIC MOBILE ENGINEERING';
+  String get heroTagline => 'SENIOR FLUTTER DEVELOPER';
 
   @override
   String get heroHeadlinePart1 => 'Building High-Performance ';
@@ -46,13 +46,13 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get heroBio =>
-      'I specialize in architecting resilient, scalable Flutter applications for enterprise ecosystems. My approach bridges executive vision with high-fidelity technical execution.';
+      'Senior Flutter Developer with 6+ years of experience building and shipping production mobile applications across Android, iOS, Web, and Windows. Strong background in Test-Driven Development (TDD), Clean Architecture, and modular design, with over 20 published applications.';
 
   @override
   String get heroExploreWork => 'Explore My Work';
 
   @override
-  String get heroPartnerWithMe => 'Partner With Me';
+  String get heroPartnerWithMe => 'Get In Touch';
 
   @override
   String get experienceSectionTag => 'MY JOURNEY';
@@ -93,26 +93,32 @@ class AppLocalizationsEn extends AppLocalizations {
   String get readingsSectionTitle => 'Curated Professional Readings';
 
   @override
-  String get contactSectionTag => 'ENGAGEMENT';
+  String get contactSectionTag => 'GET IN TOUCH';
 
   @override
-  String get contactSectionTitle => 'Let\'s Discuss Your Strategic Vision';
+  String get contactSectionTitle => 'Let\'s Connect & Collaborate';
 
   @override
   String get contactSectionSubtitle =>
-      'Currently open to architectural consulting and high-impact partnership opportunities.';
+      'Currently open to senior Flutter development roles, technical consulting, and mobile engineering opportunities.';
 
   @override
   String get emailLabel => 'EMAIL';
 
   @override
-  String get emailValue => 'strategy@devexpert.io';
+  String get emailValue => 'mahmood.abdelrazek@outlook.com';
+
+  @override
+  String get phoneLabel => 'PHONE';
+
+  @override
+  String get phoneValue => '(+20) 106 150 1137';
 
   @override
   String get locationLabel => 'LOCATION';
 
   @override
-  String get locationValue => 'Global Architecture | remote';
+  String get locationValue => 'Cairo, Egypt';
 
   @override
   String get formFullNameLabel => 'FULL NAME';
@@ -121,17 +127,17 @@ class AppLocalizationsEn extends AppLocalizations {
   String get formFullNameHint => 'John Doe';
 
   @override
-  String get formCorporateEmailLabel => 'CORPORATE EMAIL';
+  String get formCorporateEmailLabel => 'EMAIL ADDRESS';
 
   @override
   String get formCorporateEmailHint => 'john@company.com';
 
   @override
-  String get formProjectSummaryLabel => 'PROJECT SUMMARY';
+  String get formProjectSummaryLabel => 'MESSAGE / PROJECT SUMMARY';
 
   @override
   String get formProjectSummaryHint =>
-      'How can I help you scale your mobile infrastructure?';
+      'How can I help you build or scale your mobile application?';
 
   @override
   String get formFieldRequired => 'Required';
@@ -140,17 +146,17 @@ class AppLocalizationsEn extends AppLocalizations {
   String get formEmailInvalid => 'Enter valid email';
 
   @override
-  String get sendStrategicInquiry => 'Send Strategic Inquiry';
+  String get sendStrategicInquiry => 'Send Message';
 
   @override
-  String get inquirySentDefault => 'Inquiry Sent!';
+  String get inquirySentDefault => 'Message Sent!';
 
   @override
-  String get footerRole => 'SENIOR FLUTTER ARCHITECT';
+  String get footerRole => 'SENIOR FLUTTER DEVELOPER';
 
   @override
   String get footerTagline =>
-      'Building the future of enterprise mobile development through strategic engineering.';
+      'Building high-performance cross-platform mobile applications with Clean Architecture and TDD.';
 
   @override
   String get socialLinkedIn => 'LinkedIn';
@@ -163,5 +169,5 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get footerCopyright =>
-      '© 2024 Senior Flutter Architect. All rights reserved.';
+      '© 2026 Mahmood Abdelrazek Ali. All rights reserved.';
 }

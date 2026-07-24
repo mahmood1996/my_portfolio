@@ -151,7 +151,7 @@ abstract class AppLocalizations {
   /// No description provided for @heroTagline.
   ///
   /// In en, this message translates to:
-  /// **'STRATEGIC MOBILE ENGINEERING'**
+  /// **'SENIOR FLUTTER DEVELOPER'**
   String get heroTagline;
 
   /// No description provided for @heroHeadlinePart1.
@@ -169,7 +169,7 @@ abstract class AppLocalizations {
   /// No description provided for @heroBio.
   ///
   /// In en, this message translates to:
-  /// **'I specialize in architecting resilient, scalable Flutter applications for enterprise ecosystems. My approach bridges executive vision with high-fidelity technical execution.'**
+  /// **'Senior Flutter Developer with 6+ years of experience building and shipping production mobile applications across Android, iOS, Web, and Windows. Strong background in Test-Driven Development (TDD), Clean Architecture, and modular design, with over 20 published applications.'**
   String get heroBio;
 
   /// No description provided for @heroExploreWork.
@@ -181,7 +181,7 @@ abstract class AppLocalizations {
   /// No description provided for @heroPartnerWithMe.
   ///
   /// In en, this message translates to:
-  /// **'Partner With Me'**
+  /// **'Get In Touch'**
   String get heroPartnerWithMe;
 
   /// No description provided for @experienceSectionTag.
@@ -259,19 +259,19 @@ abstract class AppLocalizations {
   /// No description provided for @contactSectionTag.
   ///
   /// In en, this message translates to:
-  /// **'ENGAGEMENT'**
+  /// **'GET IN TOUCH'**
   String get contactSectionTag;
 
   /// No description provided for @contactSectionTitle.
   ///
   /// In en, this message translates to:
-  /// **'Let\'s Discuss Your Strategic Vision'**
+  /// **'Let\'s Connect & Collaborate'**
   String get contactSectionTitle;
 
   /// No description provided for @contactSectionSubtitle.
   ///
   /// In en, this message translates to:
-  /// **'Currently open to architectural consulting and high-impact partnership opportunities.'**
+  /// **'Currently open to senior Flutter development roles, technical consulting, and mobile engineering opportunities.'**
   String get contactSectionSubtitle;
 
   /// No description provided for @emailLabel.
@@ -283,8 +283,20 @@ abstract class AppLocalizations {
   /// No description provided for @emailValue.
   ///
   /// In en, this message translates to:
-  /// **'strategy@devexpert.io'**
+  /// **'mahmood.abdelrazek@outlook.com'**
   String get emailValue;
+
+  /// No description provided for @phoneLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'PHONE'**
+  String get phoneLabel;
+
+  /// No description provided for @phoneValue.
+  ///
+  /// In en, this message translates to:
+  /// **'(+20) 106 150 1137'**
+  String get phoneValue;
 
   /// No description provided for @locationLabel.
   ///
@@ -295,7 +307,7 @@ abstract class AppLocalizations {
   /// No description provided for @locationValue.
   ///
   /// In en, this message translates to:
-  /// **'Global Architecture | remote'**
+  /// **'Cairo, Egypt'**
   String get locationValue;
 
   /// No description provided for @formFullNameLabel.
@@ -313,7 +325,7 @@ abstract class AppLocalizations {
   /// No description provided for @formCorporateEmailLabel.
   ///
   /// In en, this message translates to:
-  /// **'CORPORATE EMAIL'**
+  /// **'EMAIL ADDRESS'**
   String get formCorporateEmailLabel;
 
   /// No description provided for @formCorporateEmailHint.
@@ -325,13 +337,13 @@ abstract class AppLocalizations {
   /// No description provided for @formProjectSummaryLabel.
   ///
   /// In en, this message translates to:
-  /// **'PROJECT SUMMARY'**
+  /// **'MESSAGE / PROJECT SUMMARY'**
   String get formProjectSummaryLabel;
 
   /// No description provided for @formProjectSummaryHint.
   ///
   /// In en, this message translates to:
-  /// **'How can I help you scale your mobile infrastructure?'**
+  /// **'How can I help you build or scale your mobile application?'**
   String get formProjectSummaryHint;
 
   /// No description provided for @formFieldRequired.
@@ -349,25 +361,25 @@ abstract class AppLocalizations {
   /// No description provided for @sendStrategicInquiry.
   ///
   /// In en, this message translates to:
-  /// **'Send Strategic Inquiry'**
+  /// **'Send Message'**
   String get sendStrategicInquiry;
 
   /// No description provided for @inquirySentDefault.
   ///
   /// In en, this message translates to:
-  /// **'Inquiry Sent!'**
+  /// **'Message Sent!'**
   String get inquirySentDefault;
 
   /// No description provided for @footerRole.
   ///
   /// In en, this message translates to:
-  /// **'SENIOR FLUTTER ARCHITECT'**
+  /// **'SENIOR FLUTTER DEVELOPER'**
   String get footerRole;
 
   /// No description provided for @footerTagline.
   ///
   /// In en, this message translates to:
-  /// **'Building the future of enterprise mobile development through strategic engineering.'**
+  /// **'Building high-performance cross-platform mobile applications with Clean Architecture and TDD.'**
   String get footerTagline;
 
   /// No description provided for @socialLinkedIn.
@@ -391,7 +403,7 @@ abstract class AppLocalizations {
   /// No description provided for @footerCopyright.
   ///
   /// In en, this message translates to:
-  /// **'© 2024 Senior Flutter Architect. All rights reserved.'**
+  /// **'© 2026 Mahmood Abdelrazek Ali. All rights reserved.'**
   String get footerCopyright;
 }
 

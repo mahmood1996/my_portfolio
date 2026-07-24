@@ -124,6 +124,51 @@ final class _ContactSectionWidgetState extends State<ContactSectionWidget> {
                     ),
                     const SizedBox(height: 24),
 
+                    // Phone Info
+                    Row(
+                      children: [
+                        Container(
+                          width: 48,
+                          height: 48,
+                          decoration: BoxDecoration(
+                            color: AppColors.primaryContainer.withValues(
+                              alpha: 0.2,
+                            ),
+                            shape: BoxShape.circle,
+                            border: Border.all(
+                              color: AppColors.primary.withValues(alpha: 0.3),
+                            ),
+                          ),
+                          child: const Icon(
+                            Icons.phone_outlined,
+                            color: AppColors.primary,
+                            size: 20,
+                          ),
+                        ),
+                        const SizedBox(width: 16),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              l10n.phoneLabel,
+                              style: Theme.of(context).textTheme.labelLarge
+                                  ?.copyWith(color: AppColors.onSurfaceVariant),
+                            ),
+                            const SizedBox(height: 4),
+                            Text(
+                              l10n.phoneValue,
+                              style: Theme.of(context).textTheme.bodyLarge
+                                  ?.copyWith(
+                                    color: AppColors.onSurface,
+                                    fontWeight: FontWeight.w600,
+                                  ),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: 24),
+
                     // Location Info
                     Row(
                       children: [
