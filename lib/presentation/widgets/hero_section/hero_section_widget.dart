@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:responsive_builder/responsive_builder.dart';
-import '../../design_system/asset_paths/app_assets.dart';
-import '../../design_system/theme/app_colors.dart';
-import 'shared/responsive_section_widget.dart';
+import '../../../design_system/asset_paths/app_assets.dart';
+import '../../../design_system/theme/app_colors.dart';
+import '../shared/responsive_section_widget.dart';
 
 final class HeroSectionWidget extends StatelessWidget {
   final VoidCallback onExploreWork;

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../design_system/theme/app_colors.dart';
+import '../../../design_system/theme/app_colors.dart';
 
 final class StoreButtonWidget extends StatelessWidget {
   final String label;

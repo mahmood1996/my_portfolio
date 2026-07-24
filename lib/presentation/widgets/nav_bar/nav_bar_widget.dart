@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:responsive_builder/responsive_builder.dart';
-import '../../design_system/theme/app_colors.dart';
-import '../../design_system/theme/app_fonts.dart';
-import '../bloc/portfolio_bloc.dart';
-import '../bloc/portfolio_event.dart';
+import '../../../design_system/theme/app_colors.dart';
+import '../../../design_system/theme/app_fonts.dart';
+import '../../bloc/portfolio_bloc.dart';
+import '../../bloc/portfolio_event.dart';
 import 'nav_link_widget.dart';
 
 final class NavBarWidget extends StatelessWidget implements PreferredSizeWidget {

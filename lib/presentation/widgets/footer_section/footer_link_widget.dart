@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import '../../design_system/theme/app_colors.dart';
-import 'shared/hover_tracking.dart';
+import '../../../design_system/theme/app_colors.dart';
+import '../shared/hover_tracking.dart';
 
 final class FooterLinkWidget extends StatelessWidget {
   final String title;

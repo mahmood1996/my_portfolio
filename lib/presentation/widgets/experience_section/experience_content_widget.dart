@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import '../../design_system/theme/app_colors.dart';
-import '../../domain/entities/experience_entity.dart';
+import '../../../design_system/theme/app_colors.dart';
+import '../../../domain/entities/experience_entity.dart';
 
 final class ExperienceContentWidget extends StatelessWidget {
   final ExperienceEntity item;

@@ -4,14 +4,14 @@ import '../../design_system/theme/app_colors.dart';
 import '../bloc/portfolio_bloc.dart';
 import '../bloc/portfolio_event.dart';
 import '../bloc/portfolio_state.dart';
-import '../widgets/contact_section_widget.dart';
-import '../widgets/sliver_experience_section.dart';
-import '../widgets/footer_section_widget.dart';
-import '../widgets/hero_section_widget.dart';
-import '../widgets/nav_bar_widget.dart';
-import '../widgets/sliver_projects_section.dart';
-import '../widgets/sliver_readings_section.dart';
-import '../widgets/skills_section_widget.dart';
+import '../widgets/contact_section/contact_section_widget.dart';
+import '../widgets/experience_section/sliver_experience_section.dart';
+import '../widgets/footer_section/footer_section_widget.dart';
+import '../widgets/hero_section/hero_section_widget.dart';
+import '../widgets/nav_bar/nav_bar_widget.dart';
+import '../widgets/projects_section/sliver_projects_section.dart';
+import '../widgets/readings_section/sliver_readings_section.dart';
+import '../widgets/skills_section/skills_section_widget.dart';
 
 final class PortfolioHomePage extends StatefulWidget {
   const PortfolioHomePage({super.key});

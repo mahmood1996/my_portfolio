@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:responsive_builder/responsive_builder.dart';
-import '../../design_system/theme/app_colors.dart';
-import '../../domain/entities/contact_inquiry.dart';
-import '../bloc/portfolio_bloc.dart';
-import '../bloc/portfolio_event.dart';
-import '../bloc/portfolio_state.dart';
-import 'shared/responsive_section_widget.dart';
+import '../../../design_system/theme/app_colors.dart';
+import '../../../domain/entities/contact_inquiry.dart';
+import '../../bloc/portfolio_bloc.dart';
+import '../../bloc/portfolio_event.dart';
+import '../../bloc/portfolio_state.dart';
+import '../shared/responsive_section_widget.dart';
 
 final class ContactSectionWidget extends StatefulWidget {
   const ContactSectionWidget({super.key});

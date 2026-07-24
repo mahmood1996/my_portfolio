@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import '../../design_system/asset_paths/app_assets.dart';
-import '../../design_system/theme/app_colors.dart';
-import '../../domain/entities/reading_entity.dart';
-import 'shared/hover_tracking.dart';
+import '../../../design_system/asset_paths/app_assets.dart';
+import '../../../design_system/theme/app_colors.dart';
+import '../../../domain/entities/reading_entity.dart';
+import '../shared/hover_tracking.dart';
 
 final class BookCardWidget extends StatelessWidget {
   final ReadingEntity reading;

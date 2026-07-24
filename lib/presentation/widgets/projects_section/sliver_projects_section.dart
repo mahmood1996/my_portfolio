@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-import '../../design_system/theme/app_colors.dart';
-import '../../domain/entities/project_entity.dart';
+import '../../../design_system/theme/app_colors.dart';
+import '../../../domain/entities/project_entity.dart';
 
 import 'project_card_widget.dart';
-import 'shared/sliver_responsive_builder.dart';
-import 'shared/sliver_responsive_section.dart';
+import '../shared/sliver_responsive_builder.dart';
+import '../shared/sliver_responsive_section.dart';
 
 final class SliverProjectsSection extends StatelessWidget {
   final List<ProjectEntity> projects;

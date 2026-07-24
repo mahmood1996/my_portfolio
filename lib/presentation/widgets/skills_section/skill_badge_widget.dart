@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import '../../design_system/theme/app_colors.dart';
-import '../../domain/entities/skill_entity.dart';
-import 'shared/hover_tracking.dart';
+import '../../../design_system/theme/app_colors.dart';
+import '../../../domain/entities/skill_entity.dart';
+import '../shared/hover_tracking.dart';
 
 final class SkillBadgeWidget extends StatelessWidget {
   final SkillEntity skill;

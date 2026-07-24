@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import '../../design_system/theme/app_colors.dart';
-import '../../domain/entities/skill_entity.dart';
-import 'shared/responsive_section_widget.dart';
+import '../../../design_system/theme/app_colors.dart';
+import '../../../domain/entities/skill_entity.dart';
+import '../shared/responsive_section_widget.dart';
 import 'skill_badge_widget.dart';
 
 final class SkillsSectionWidget extends StatelessWidget {

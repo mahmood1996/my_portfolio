@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
-import '../../design_system/asset_paths/app_assets.dart';
-import '../../design_system/theme/app_colors.dart';
-import '../../domain/entities/project_entity.dart';
-import 'shared/hover_tracking.dart';
+import '../../../design_system/asset_paths/app_assets.dart';
+import '../../../design_system/theme/app_colors.dart';
+import '../../../domain/entities/project_entity.dart';
+import '../shared/hover_tracking.dart';
 import 'store_button_widget.dart';
 
 final class ProjectCardWidget extends StatelessWidget {
