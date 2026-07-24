@@ -9,22 +9,6 @@ final class SkillsSectionWidget extends StatelessWidget {
 
   const SkillsSectionWidget({super.key, required this.skills});
 
-  IconData _getIcon(String name) {
-    switch (name) {
-      case 'flutter':
-        return Icons.flutter_dash;
-      case 'architecture':
-        return Icons.architecture;
-      case 'rule':
-        return Icons.rule;
-      case 'hub':
-        return Icons.hub;
-      case 'build_circle':
-      default:
-        return Icons.build_circle;
-    }
-  }
-
   @override
   Widget build(BuildContext context) {
     return ResponsiveSectionWidget(
@@ -61,7 +45,7 @@ final class SkillsSectionWidget extends StatelessWidget {
             children: skills.map((skill) {
               return SkillBadgeWidget(
                 skill: skill,
-                icon: _getIcon(skill.iconName),
+                icon: _iconData(skill.iconName),
               );
             }).toList(),
           ),
@@ -69,4 +53,13 @@ final class SkillsSectionWidget extends StatelessWidget {
       ),
     );
   }
+
+  IconData _iconData(String name) => switch (name) {
+    'flutter' => Icons.flutter_dash,
+    'architecture' => Icons.architecture,
+    'rule' => Icons.rule,
+    'hub' => Icons.hub,
+    'build_circle' => Icons.build_circle,
+    _ => Icons.build,
+  };
 }

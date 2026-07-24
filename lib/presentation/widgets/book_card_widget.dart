@@ -31,6 +31,8 @@ final class BookCardWidget extends StatelessWidget {
             Expanded(
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(8),
+                clipBehavior: Clip.hardEdge,
+
                 child: ColorFiltered(
                   colorFilter: isHovered
                       ? const ColorFilter.mode(
@@ -61,12 +63,10 @@ final class BookCardWidget extends StatelessWidget {
                         ]),
                   child: Image.asset(
                     reading.imagePath,
-                    width: double.infinity,
                     fit: BoxFit.cover,
                     errorBuilder: (context, error, stackTrace) {
                       return Image.asset(
                         AppAssets.bookPlaceholder,
-                        width: double.infinity,
                         fit: BoxFit.cover,
                       );
                     },
@@ -74,6 +74,7 @@ final class BookCardWidget extends StatelessWidget {
                 ),
               ),
             ),
+
             const SizedBox(height: 16),
 
             // Book Title

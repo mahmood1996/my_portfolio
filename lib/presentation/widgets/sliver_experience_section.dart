@@ -1,57 +1,53 @@
 import 'package:flutter/material.dart';
-import 'package:responsive_builder/responsive_builder.dart';
+
 import '../../design_system/theme/app_colors.dart';
 import '../../domain/entities/experience_entity.dart';
+
 import 'experience_card_mobile_widget.dart';
 import 'experience_content_widget.dart';
-import 'shared/responsive_section_widget.dart';
+import 'shared/sliver_responsive_builder.dart';
+import 'shared/sliver_responsive_section.dart';
 
-final class ExperienceSectionWidget extends StatelessWidget {
+final class SliverExperienceSection extends StatelessWidget {
   final List<ExperienceEntity> experiences;
 
-  const ExperienceSectionWidget({super.key, required this.experiences});
-
-  IconData _getIconData(String name) {
-    switch (name) {
-      case 'corporate_fare':
-        return Icons.business;
-      case 'rocket_launch':
-        return Icons.rocket_launch;
-      case 'devices':
-      default:
-        return Icons.devices;
-    }
-  }
+  const SliverExperienceSection({super.key, required this.experiences});
 
   @override
   Widget build(BuildContext context) {
-    return ResponsiveSectionWidget(
-      child: Column(
-        children: [
+    return SliverResponsiveSection(
+      sliver: SliverMainAxisGroup(
+        slivers: [
           // Header
-          Text(
-            'MY JOURNEY',
-            style: Theme.of(context).textTheme.labelLarge?.copyWith(
-              color: AppColors.primary,
-              letterSpacing: 2.0,
+          SliverToBoxAdapter(
+            child: Text(
+              'MY JOURNEY',
+              textAlign: TextAlign.center,
+              style: Theme.of(context).textTheme.labelLarge?.copyWith(
+                color: AppColors.primary,
+                letterSpacing: 2.0,
+              ),
             ),
           ),
-          const SizedBox(height: 12),
-          Text(
-            'Professional Impact & Evolution',
-            style: Theme.of(context).textTheme.headlineMedium,
-            textAlign: TextAlign.center,
+
+          const SliverToBoxAdapter(child: SizedBox(height: 12)),
+
+          SliverToBoxAdapter(
+            child: Text(
+              'Professional Impact & Evolution',
+              style: Theme.of(context).textTheme.headlineMedium,
+              textAlign: TextAlign.center,
+            ),
           ),
-          const SizedBox(height: 64),
+
+          const SliverToBoxAdapter(child: SizedBox(height: 64)),
 
           // Timeline List
-          ResponsiveBuilder(
+          SliverResponsiveBuilder(
             builder: (context, sizingInformation) {
               final isDesktop = sizingInformation.isDesktop;
 
-              return ListView.separated(
-                shrinkWrap: true,
-                physics: const NeverScrollableScrollPhysics(),
+              return SliverList.separated(
                 itemCount: experiences.length,
                 separatorBuilder: (context, index) =>
                     const SizedBox(height: 48),
@@ -63,7 +59,7 @@ final class ExperienceSectionWidget extends StatelessWidget {
                     // Mobile / Tablet Layout: left-bordered card
                     return ExperienceCardMobileWidget(
                       item: item,
-                      icon: _getIconData(item.iconName),
+                      icon: _iconData(item.iconName),
                     );
                   }
 
@@ -99,7 +95,7 @@ final class ExperienceSectionWidget extends StatelessWidget {
                           ),
                         ),
                         child: Icon(
-                          _getIconData(item.iconName),
+                          _iconData(item.iconName),
                           size: 20,
                           color: item.isHighlight
                               ? AppColors.secondary
@@ -128,4 +124,10 @@ final class ExperienceSectionWidget extends StatelessWidget {
       ),
     );
   }
+
+  IconData _iconData(String name) => switch (name) {
+    'corporate_fare' => Icons.business,
+    'rocket_launch' => Icons.rocket_launch,
+    _ => Icons.devices,
+  };
 }

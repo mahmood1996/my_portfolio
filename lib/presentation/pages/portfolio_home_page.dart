@@ -5,12 +5,12 @@ import '../bloc/portfolio_bloc.dart';
 import '../bloc/portfolio_event.dart';
 import '../bloc/portfolio_state.dart';
 import '../widgets/contact_section_widget.dart';
-import '../widgets/experience_section_widget.dart';
+import '../widgets/sliver_experience_section.dart';
 import '../widgets/footer_section_widget.dart';
 import '../widgets/hero_section_widget.dart';
 import '../widgets/nav_bar_widget.dart';
-import '../widgets/projects_section_widget.dart';
-import '../widgets/readings_section_widget.dart';
+import '../widgets/sliver_projects_section.dart';
+import '../widgets/sliver_readings_section.dart';
 import '../widgets/skills_section_widget.dart';
 
 final class PortfolioHomePage extends StatefulWidget {
@@ -111,40 +111,50 @@ final class _PortfolioHomePageState extends State<PortfolioHomePage> {
 
           if (data == null) return const SizedBox.shrink();
 
-          return SingleChildScrollView(
+          return CustomScrollView(
             controller: _scrollController,
-            child: Column(
-              children: [
-                KeyedSubtree(
-                  key: _aboutKey,
+            slivers: [
+              KeyedSubtree(
+                key: _aboutKey,
+                child: SliverToBoxAdapter(
                   child: HeroSectionWidget(
                     onExploreWork: () => _scrollToSection('projects'),
                     onPartnerWithMe: () => _scrollToSection('contact'),
                   ),
                 ),
-                KeyedSubtree(
-                  key: _experienceKey,
-                  child: ExperienceSectionWidget(experiences: data.experiences),
-                ),
-                KeyedSubtree(
-                  key: _projectsKey,
-                  child: ProjectsSectionWidget(projects: data.projects),
-                ),
-                KeyedSubtree(
-                  key: _skillsKey,
+              ),
+
+              KeyedSubtree(
+                key: _experienceKey,
+                child: SliverExperienceSection(experiences: data.experiences),
+              ),
+
+              KeyedSubtree(
+                key: _projectsKey,
+                child: SliverProjectsSection(projects: data.projects),
+              ),
+
+              KeyedSubtree(
+                key: _skillsKey,
+                child: SliverToBoxAdapter(
                   child: SkillsSectionWidget(skills: data.skills),
                 ),
-                KeyedSubtree(
-                  key: _readingsKey,
-                  child: ReadingsSectionWidget(readings: data.readings),
-                ),
-                KeyedSubtree(
-                  key: _contactKey,
-                  child: const ContactSectionWidget(),
-                ),
-                FooterSectionWidget(onNavSelected: _scrollToSection),
-              ],
-            ),
+              ),
+
+              KeyedSubtree(
+                key: _readingsKey,
+                child: SliverReadingsSection(readings: data.readings),
+              ),
+
+              KeyedSubtree(
+                key: _contactKey,
+                child: const SliverToBoxAdapter(child: ContactSectionWidget()),
+              ),
+
+              SliverToBoxAdapter(
+                child: FooterSectionWidget(onNavSelected: _scrollToSection),
+              ),
+            ],
           );
         },
       ),

@@ -18,7 +18,6 @@ final class _HoverTrackingState extends State<HoverTracking>
     super.build(context);
 
     return MouseRegion(
-      cursor: SystemMouseCursors.click,
       onHover: (_) => setState(() => _collectedHovers.first = true),
       onExit: (_) => setState(() => _collectedHovers.first = false),
       child: widget._builder(context, _collectedHovers.first),
