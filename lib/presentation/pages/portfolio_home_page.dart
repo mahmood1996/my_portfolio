@@ -118,6 +118,7 @@ final class _PortfolioHomePageState extends State<PortfolioHomePage> {
                 key: _aboutKey,
                 child: SliverToBoxAdapter(
                   child: HeroSectionWidget(
+                    about: data.about,
                     onExploreWork: () => _scrollToSection('projects'),
                     onPartnerWithMe: () => _scrollToSection('contact'),
                   ),
@@ -148,7 +149,9 @@ final class _PortfolioHomePageState extends State<PortfolioHomePage> {
 
               KeyedSubtree(
                 key: _contactKey,
-                child: const SliverToBoxAdapter(child: ContactSectionWidget()),
+                child: SliverToBoxAdapter(
+                  child: ContactSectionWidget(contactInfo: data.contact),
+                ),
               ),
 
               SliverToBoxAdapter(

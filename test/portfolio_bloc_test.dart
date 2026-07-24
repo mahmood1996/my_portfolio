@@ -37,7 +37,7 @@ void main() {
   });
 
   test(
-    'LoadPortfolioDataEvent should load experiences, projects, skills, and readings',
+    'LoadPortfolioDataEvent should load about, contact, experiences, projects, skills, and readings',
     () async {
       portfolioBloc.add(LoadPortfolioDataEvent());
 
@@ -47,6 +47,16 @@ void main() {
           const PortfolioState(isLoading: true),
           isA<PortfolioState>()
               .having((s) => s.isLoading, 'isLoading', false)
+              .having(
+                (s) => s.data?.about.name.isNotEmpty,
+                'about.name is Not Empty',
+                true,
+              )
+              .having(
+                (s) => s.data?.contact.email.isNotEmpty,
+                'contact.email is Not Empty',
+                true,
+              )
               .having(
                 (s) => s.data?.experiences.isNotEmpty,
                 'experiences is Not Empty',

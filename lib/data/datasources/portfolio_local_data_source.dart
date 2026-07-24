@@ -1,11 +1,15 @@
 import 'dart:convert';
 import 'package:flutter/services.dart';
+import '../models/about_model.dart';
+import '../models/contact_info_model.dart';
 import '../models/experience_model.dart';
 import '../models/project_model.dart';
 import '../models/reading_model.dart';
 import '../models/skill_model.dart';
 
 abstract class PortfolioLocalDataSource {
+  Future<AboutModel> getAbout();
+  Future<ContactInfoModel> getContactInfo();
   Future<List<ExperienceModel>> getExperiences();
   Future<List<ProjectModel>> getProjects();
   Future<List<SkillModel>> getSkills();
@@ -30,6 +34,20 @@ class PortfolioLocalDataSourceImpl implements PortfolioLocalDataSource {
     final jsonString = await _assetBundle.loadString(_jsonPath);
     _cachedData = json.decode(jsonString) as Map<String, dynamic>;
     return _cachedData!;
+  }
+
+  @override
+  Future<AboutModel> getAbout() async {
+    final data = await _loadJsonData();
+    final map = data['about'] as Map<String, dynamic>? ?? {};
+    return AboutModel.fromJson(map);
+  }
+
+  @override
+  Future<ContactInfoModel> getContactInfo() async {
+    final data = await _loadJsonData();
+    final map = data['contact'] as Map<String, dynamic>? ?? {};
+    return ContactInfoModel.fromJson(map);
   }
 
   @override

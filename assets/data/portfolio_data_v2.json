@@ -1,4 +1,19 @@
 {
+  "about": {
+    "name": "Mahmood Abdelrazek Ali",
+    "tagline": "SENIOR FLUTTER DEVELOPER",
+    "headlinePart1": "Building High-Performance ",
+    "headlinePart2": "Mobile Experiences",
+    "bio": "Senior Flutter Developer with 6+ years of experience building and shipping production mobile applications across Android, iOS, Web, and Windows. Strong background in Test-Driven Development (TDD), Clean Architecture, and modular design, with over 20 published applications."
+  },
+  "contact": {
+    "email": "mahmood.abdelrazek@outlook.com",
+    "phone": "(+20) 106 150 1137",
+    "location": "Cairo, Egypt",
+    "linkedInUrl": "https://www.linkedin.com/in/mahmood-abd-elrazek-ali-845234132",
+    "gitHubUrl": "https://github.com/mahmood1996",
+    "gitLabUrl": "https://gitlab.com/aooozzzz96"
+  },
   "experiences": [
     {
       "period": "MAY 2023 — PRESENT",

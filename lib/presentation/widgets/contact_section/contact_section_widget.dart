@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:responsive_builder/responsive_builder.dart';
+import '../../../domain/entities/contact_info_entity.dart';
 import '../../../l10n/app_localizations.dart';
 import '../../../design_system/theme/app_colors.dart';
 import '../../../domain/entities/contact_inquiry.dart';
@@ -10,7 +11,12 @@ import '../../bloc/portfolio_state.dart';
 import '../shared/responsive_section_widget.dart';
 
 final class ContactSectionWidget extends StatefulWidget {
-  const ContactSectionWidget({super.key});
+  final ContactInfoEntity contactInfo;
+
+  const ContactSectionWidget({
+    super.key,
+    required this.contactInfo,
+  });
 
   @override
   State<ContactSectionWidget> createState() => _ContactSectionWidgetState();
@@ -111,7 +117,7 @@ final class _ContactSectionWidgetState extends State<ContactSectionWidget> {
                             ),
                             const SizedBox(height: 4),
                             Text(
-                              l10n.emailValue,
+                              widget.contactInfo.email,
                               style: Theme.of(context).textTheme.bodyLarge
                                   ?.copyWith(
                                     color: AppColors.onSurface,
@@ -156,7 +162,7 @@ final class _ContactSectionWidgetState extends State<ContactSectionWidget> {
                             ),
                             const SizedBox(height: 4),
                             Text(
-                              l10n.phoneValue,
+                              widget.contactInfo.phone,
                               style: Theme.of(context).textTheme.bodyLarge
                                   ?.copyWith(
                                     color: AppColors.onSurface,
@@ -201,7 +207,7 @@ final class _ContactSectionWidgetState extends State<ContactSectionWidget> {
                             ),
                             const SizedBox(height: 4),
                             Text(
-                              l10n.locationValue,
+                              widget.contactInfo.location,
                               style: Theme.of(context).textTheme.bodyLarge
                                   ?.copyWith(
                                     color: AppColors.onSurface,

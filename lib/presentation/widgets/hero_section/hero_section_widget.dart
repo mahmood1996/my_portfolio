@@ -1,16 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:responsive_builder/responsive_builder.dart';
+import '../../../domain/entities/about_entity.dart';
 import '../../../l10n/app_localizations.dart';
 import '../../../design_system/asset_paths/app_assets.dart';
 import '../../../design_system/theme/app_colors.dart';
 import '../shared/responsive_section_widget.dart';
 
 final class HeroSectionWidget extends StatelessWidget {
+  final AboutEntity about;
   final VoidCallback onExploreWork;
   final VoidCallback onPartnerWithMe;
 
   const HeroSectionWidget({
     super.key,
+    required this.about,
     required this.onExploreWork,
     required this.onPartnerWithMe,
   });
@@ -38,7 +41,7 @@ final class HeroSectionWidget extends StatelessWidget {
                   children: [
                     // Tagline
                     Text(
-                      l10n.heroTagline,
+                      about.tagline,
                       style: Theme.of(context).textTheme.labelLarge?.copyWith(
                         color: AppColors.gold,
                         letterSpacing: 2.0,
@@ -56,9 +59,9 @@ final class HeroSectionWidget extends StatelessWidget {
                             ? Theme.of(context).textTheme.displayLarge
                             : Theme.of(context).textTheme.displayMedium,
                         children: [
-                          TextSpan(text: l10n.heroHeadlinePart1),
+                          TextSpan(text: about.headlinePart1),
                           TextSpan(
-                            text: l10n.heroHeadlinePart2,
+                            text: about.headlinePart2,
                             style: const TextStyle(color: AppColors.primary),
                           ),
                         ],
@@ -68,7 +71,7 @@ final class HeroSectionWidget extends StatelessWidget {
 
                     // Bio Text
                     Text(
-                      l10n.heroBio,
+                      about.bio,
                       style: Theme.of(context).textTheme.bodyLarge,
                     ),
                     const SizedBox(height: 36),

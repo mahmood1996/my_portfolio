@@ -9,12 +9,16 @@ class PortfolioRepositoryImpl implements PortfolioRepository {
 
   @override
   Future<PortfolioData> getPortfolioData() async {
+    final about = await localDataSource.getAbout();
+    final contact = await localDataSource.getContactInfo();
     final experiences = await localDataSource.getExperiences();
     final projects = await localDataSource.getProjects();
     final skills = await localDataSource.getSkills();
     final readings = await localDataSource.getReadings();
 
     return PortfolioData(
+      about: about,
+      contact: contact,
       experiences: experiences,
       projects: projects,
       skills: skills,
