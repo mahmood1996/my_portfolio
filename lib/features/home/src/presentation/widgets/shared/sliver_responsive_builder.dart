@@ -42,3 +42,13 @@ final class SliverResponsiveBuilder extends StatelessWidget {
     );
   }
 }
+
+extension SmartSizingInformation on SizingInformation {
+  T valueOfScreenType<T>({required T mobile, T? tablet, T? desktop}) =>
+      switch (deviceScreenType) {
+        DeviceScreenType.mobile => mobile,
+        DeviceScreenType.tablet => tablet ?? mobile,
+        DeviceScreenType.desktop => desktop ?? tablet ?? mobile,
+        _ => mobile,
+      };
+}

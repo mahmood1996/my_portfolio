@@ -8,7 +8,8 @@ import '../../bloc/portfolio_bloc.dart';
 import '../../bloc/portfolio_event.dart';
 import 'nav_link_widget.dart';
 
-final class NavBarWidget extends StatelessWidget implements PreferredSizeWidget {
+final class NavBarWidget extends StatelessWidget
+    implements PreferredSizeWidget {
   final Function(String sectionKey) onNavSelected;
 
   const NavBarWidget({super.key, required this.onNavSelected});
@@ -49,15 +50,19 @@ final class NavBarWidget extends StatelessWidget implements PreferredSizeWidget 
                       l10n.authorName,
                       maxLines: 1,
                       overflow: TextOverflow.ellipsis,
-                      style: Theme.of(context).textTheme.headlineMedium?.copyWith(
-                        color: AppColors.gold,
-                        fontFamily: AppFonts.allura,
-                        fontWeight: FontWeight.w600,
-                        letterSpacing: 1,
-                        shadows: [
-                          const Shadow(color: AppColors.gold, blurRadius: 30),
-                        ],
-                      ),
+                      style: Theme.of(context).textTheme.headlineSmall
+                          ?.copyWith(
+                            color: AppColors.gold,
+                            fontFamily: AppFonts.spaceGrotesk,
+                            fontWeight: FontWeight.w600,
+                            letterSpacing: 1,
+                            shadows: [
+                              const Shadow(
+                                color: AppColors.gold,
+                                blurRadius: 30,
+                              ),
+                            ],
+                          ),
                     ),
                   ),
 
@@ -133,7 +138,10 @@ final class NavBarWidget extends StatelessWidget implements PreferredSizeWidget 
 
                       if (!isDesktop)
                         PopupMenuButton<String>(
-                          icon: const Icon(Icons.menu, color: AppColors.onSurface),
+                          icon: const Icon(
+                            Icons.menu,
+                            color: AppColors.onSurface,
+                          ),
                           color: AppColors.surfaceContainerHigh,
                           onSelected: onNavSelected,
                           itemBuilder: (context) => [

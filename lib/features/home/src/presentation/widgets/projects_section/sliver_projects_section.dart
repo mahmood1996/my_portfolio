@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:portfolio/core/l10n/app_localizations.dart';
 import 'package:portfolio/design_system/theme/app_colors.dart';
 import 'package:portfolio/features/home/src/domain/entities/project_entity.dart';
+import 'package:responsive_builder/responsive_builder.dart';
 
 import 'project_card_widget.dart';
 import '../shared/sliver_responsive_builder.dart';
@@ -53,16 +54,31 @@ final class SliverProjectsSection extends StatelessWidget {
 
           // Cards Grid
           SliverResponsiveBuilder(
+            breakpoints: ScreenBreakpoints(
+              watch: 300,
+              tablet: 850,
+              desktop: 1200,
+            ),
+
             builder: (context, sizingInformation) {
-              final isDesktop = sizingInformation.isDesktop;
-              final crossAxisCount = isDesktop ? 3 : 1;
+              final crossAxisCount = sizingInformation.valueOfScreenType(
+                mobile: 1,
+                tablet: 2,
+                desktop: 3,
+              );
+
+              final childAspectRatio = sizingInformation.valueOfScreenType(
+                mobile: 1.0,
+                tablet: 0.9,
+                desktop: 0.95,
+              );
 
               return SliverGrid.builder(
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: crossAxisCount,
-                  crossAxisSpacing: 32,
                   mainAxisSpacing: 32,
-                  childAspectRatio: isDesktop ? 1.25 : 0.85,
+                  crossAxisSpacing: 32,
+                  crossAxisCount: crossAxisCount,
+                  childAspectRatio: childAspectRatio,
                 ),
                 itemCount: projects.length,
                 itemBuilder: (context, index) {

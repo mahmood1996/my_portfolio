@@ -5,6 +5,7 @@ class ProjectEntity extends Equatable {
   final String title;
   final String description;
   final String iconName;
+  final String coverImage;
   final String appStoreUrl;
   final String googlePlayUrl;
 
@@ -13,10 +14,21 @@ class ProjectEntity extends Equatable {
     required this.title,
     required this.description,
     required this.iconName,
+    required this.coverImage,
     required this.appStoreUrl,
     required this.googlePlayUrl,
   });
 
   @override
-  List<Object?> get props => [category, title, description, iconName, appStoreUrl, googlePlayUrl];
+  List<Object?> get props => [
+    category,
+    title,
+    description,
+    iconName,
+    coverImage,
+    appStoreUrl,
+    googlePlayUrl,
+  ];
+
+  bool get isInProduction => appStoreUrl.isNotEmpty || googlePlayUrl.isNotEmpty;
 }

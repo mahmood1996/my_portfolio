@@ -1,12 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:url_launcher/url_launcher.dart';
-import 'package:portfolio/core/l10n/app_localizations.dart';
 
-import 'package:portfolio/design_system/asset_paths/app_assets.dart';
-import 'package:portfolio/design_system/theme/app_colors.dart';
-import 'package:portfolio/features/home/src/domain/entities/project_entity.dart';
+import 'stores_buttons.dart';
 
-import 'store_button_widget.dart';
+import 'in_progress_label.dart';
+
+import 'project_cover_image.dart';
+
+import '../shared/hover_tracking.dart';
+
+import '../../../domain/entities/project_entity.dart';
+
+import '../../../../../../design_system/theme/app_colors.dart';
 
 final class ProjectCardWidget extends StatelessWidget {
   final ProjectEntity project;
@@ -18,93 +22,83 @@ final class ProjectCardWidget extends StatelessWidget {
     required this.icon,
   });
 
-  Future<void> _launch(String url) async {
-    final uri = Uri.parse(url);
-    if (await canLaunchUrl(uri)) {
-      await launchUrl(uri);
-    }
-  }
-
   @override
   Widget build(BuildContext context) {
-    final l10n = AppLocalizations.of(context)!;
     final isSecondary = project.category.contains('HealthTech');
 
-    return Container(
-      padding: const EdgeInsets.all(32),
-      decoration: BoxDecoration(
-        color: AppColors.surfaceContainerHigh,
-        borderRadius: BorderRadius.circular(24),
-        border: Border.all(
-          color: (isSecondary
-              ? AppColors.secondary.withValues(alpha: 0.4)
-              : AppColors.primary.withValues(alpha: 0.4)),
-        ),
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Column(
+    return HoverTracking(
+      builder: (context, isHovered) {
+        return Container(
+          padding: const EdgeInsets.all(20),
+          decoration: BoxDecoration(
+            color: AppColors.surfaceContainerHigh,
+            borderRadius: BorderRadius.circular(24),
+            border: Border.all(
+              color: (isSecondary
+                  ? AppColors.secondary.withValues(alpha: 0.4)
+                  : AppColors.primary.withValues(alpha: 0.4)),
+            ),
+          ),
+          child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              Expanded(
+                child: ProjectCoverImage(
+                  url: project.coverImage,
+                  isHovered: isHovered,
+                ),
+              ),
+              const SizedBox(height: 16),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
                     project.category.toUpperCase(),
-                    style: Theme.of(context).textTheme.labelLarge?.copyWith(
+                    style: Theme.of(context).textTheme.labelMedium?.copyWith(
                       color: isSecondary
                           ? AppColors.secondary
                           : AppColors.primary,
+                      fontWeight: FontWeight.bold,
                     ),
                   ),
                   Icon(
                     icon,
-                    size: 32,
+                    size: 24,
                     color: isSecondary
                         ? AppColors.secondary
                         : AppColors.primary,
                   ),
                 ],
               ),
-              const SizedBox(height: 16),
+              const SizedBox(height: 12),
               Text(
                 project.title,
-                style: Theme.of(context).textTheme.headlineMedium,
+                maxLines: 2,
+                overflow: TextOverflow.ellipsis,
+                style: Theme.of(
+                  context,
+                ).textTheme.titleLarge?.copyWith(fontWeight: FontWeight.bold),
               ),
-              const SizedBox(height: 16),
+              const SizedBox(height: 8),
               Text(
                 project.description,
-                style: Theme.of(context).textTheme.bodyMedium,
+                maxLines: 2,
+                overflow: TextOverflow.ellipsis,
+                style: Theme.of(context).textTheme.bodySmall,
               ),
+              const SizedBox(height: 12),
+
+              // Download store links or In Progress label
+              project.isInProduction
+                  ? StoresButtons(project: project)
+                  : const Align(
+                      alignment: AlignmentDirectional.centerEnd,
+                      child: InProgressLabel(),
+                    ),
             ],
           ),
-
-          // Download store links
-          if (project.appStoreUrl.isNotEmpty ||
-              project.googlePlayUrl.isNotEmpty)
-            Wrap(
-              spacing: 12,
-              runSpacing: 12,
-              children: [
-                if (project.appStoreUrl.isNotEmpty)
-                  StoreButtonWidget(
-                    label: l10n.appStore,
-                    iconAsset: AppAssets.appStore,
-                    onTap: () => _launch(project.appStoreUrl),
-                  ),
-
-                if (project.googlePlayUrl.isNotEmpty)
-                  StoreButtonWidget(
-                    label: l10n.playStore,
-                    iconAsset: AppAssets.googlePlay,
-                    onTap: () => _launch(project.googlePlayUrl),
-                  ),
-              ],
-            ),
-        ],
-      ),
+        );
+      },
     );
   }
 }

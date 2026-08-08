@@ -77,6 +77,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get playStore => 'Play Store';
 
   @override
+  String get inProgress => 'In Progress';
+
+  @override
   String get skillsSectionTag => 'METHODOLOGY';
 
   @override

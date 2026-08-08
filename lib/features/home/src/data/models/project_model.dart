@@ -6,6 +6,7 @@ class ProjectModel extends ProjectEntity {
     required super.title,
     required super.description,
     required super.iconName,
+    required super.coverImage,
     required super.appStoreUrl,
     required super.googlePlayUrl,
   });
@@ -16,6 +17,7 @@ class ProjectModel extends ProjectEntity {
       title: json['title'] ?? '',
       description: json['description'] ?? '',
       iconName: json['iconName'] ?? '',
+      coverImage: json['coverImage'] ?? '',
       appStoreUrl: json['appStoreUrl'] ?? '',
       googlePlayUrl: json['googlePlayUrl'] ?? '',
     );
@@ -27,6 +29,7 @@ class ProjectModel extends ProjectEntity {
       'title': title,
       'description': description,
       'iconName': iconName,
+      'coverImage': coverImage,
       'appStoreUrl': appStoreUrl,
       'googlePlayUrl': googlePlayUrl,
     };

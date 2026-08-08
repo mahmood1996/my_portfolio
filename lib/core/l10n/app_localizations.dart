@@ -226,6 +226,12 @@ abstract class AppLocalizations {
   /// **'Play Store'**
   String get playStore;
 
+  /// No description provided for @inProgress.
+  ///
+  /// In en, this message translates to:
+  /// **'In Progress'**
+  String get inProgress;
+
   /// No description provided for @skillsSectionTag.
   ///
   /// In en, this message translates to:
