@@ -57,6 +57,7 @@
       "title": "Speed Delivery",
       "description": "On-demand commerce app for food and groceries with live order tracking.",
       "iconName": "account_balance",
+      "coverImage": "https://lh3.googleusercontent.com/d/13gzsIUTKCr-cAw41oFegkFVuKrIo2XEs",
       "appStoreUrl": "https://apps.apple.com/us/app/%D8%B3%D8%A8%D9%8A%D8%AF-%D8%AF%D9%84%D9%8A%D9%81%D8%B1%D9%8A/id6472154144?l=ar",
       "googlePlayUrl": "https://play.google.com/store/apps/details?id=com.speeddelivery.app&hl=ar"
     },
@@ -65,6 +66,7 @@
       "title": "Speed Merchant",
       "description": "Merchant app for order management on Speed Delivery.",
       "iconName": "insights",
+      "coverImage": "https://lh3.googleusercontent.com/d/1nL53lWxo8Y2yCY3q7f1yG6W7MAXRK2NM",
       "appStoreUrl": "https://apps.apple.com/us/app/%D8%B3%D8%A8%D9%8A%D8%AF-%D8%AF%D9%84%D9%8A%D9%81%D8%B1%D9%8A-%D8%AA%D8%B7%D8%A8%D9%8A%D9%82-%D8%A7%D9%84%D8%A8%D8%A7%D8%A6%D8%B9/id6474730444?l=ar",
       "googlePlayUrl": "https://play.google.com/store/apps/details?id=com.spdelivery.app&hl=ar"
     },
@@ -73,7 +75,8 @@
       "title": "Speed Driver",
       "description": "Driver app for managing deliveries on Speed Delivery.",
       "iconName": "insights",
-      "appStoreUrl": "https://apps.apple.com/us/app/%D8%B3%D8%A8%D9%8A%D8%AF-%D8%AF%D1%80%D8%A7%D9%8A%D9%81%D8%B1/id6474730756?l=ar",
+      "coverImage": "https://lh3.googleusercontent.com/d/1XLtj71bMiRTnRvhtJgnOJcnkoItjhtLz",
+      "appStoreUrl": "https://apps.apple.com/us/app/%D8%B3%D8%A8%D9%8A%D8%AF-%D8%AF%D8%B0%D8%A7%D9%8A%D9%81%D8%B1/id6474730756?l=ar",
       "googlePlayUrl": "https://play.google.com/store/apps/details?id=com.sinbad.sinbad"
     },
     {
@@ -81,6 +84,7 @@
       "title": "Alo Taxi",
       "description": "Ride-hailing and package delivery app for passengers.",
       "iconName": "account_balance",
+      "coverImage": "https://lh3.googleusercontent.com/d/1MG9GzPRF-HQxzM4jrkOp4NMYaUuitwv3",
       "appStoreUrl": "https://apps.apple.com/us/app/alo-taxi-speed/id6503211790?l=ar",
       "googlePlayUrl": "https://play.google.com/store/apps/details?id=app.taxi.alo"
     },
@@ -89,6 +93,7 @@
       "title": "Alo Taxi Driver",
       "description": "Driver app for managing rides and deliveries on Alo Taxi.",
       "iconName": "insights",
+      "coverImage": "https://lh3.googleusercontent.com/d/1cSzeGQlpW6SgSo8pgTydR6obgj8KOV0q",
       "appStoreUrl": "https://apps.apple.com/us/app/alo-taxi-driver/id6503222884?l=ar",
       "googlePlayUrl": "https://play.google.com/store/apps/details?id=driver.taxi.alo"
     },
@@ -97,6 +102,7 @@
       "title": "Artablak",
       "description": "AI-powered bespoke tailoring app with custom measurements and AI-generated patterns.",
       "iconName": "insights",
+      "coverImage": "https://lh3.googleusercontent.com/d/1Niwoo-LnBzf1nXnTwcSDqG6E3_ydq8V7",
       "appStoreUrl": "https://apps.apple.com/us/app/artablak/id6753711788",
       "googlePlayUrl": ""
     },
@@ -105,6 +111,7 @@
       "title": "Cozmo One",
       "description": "On-demand commerce app for groceries, restaurants, and water delivery.",
       "iconName": "account_balance",
+      "coverImage": "https://lh3.googleusercontent.com/d/1A-GtHO_HiPr0rMkQ4lhRQQC3Pe9HfppT",
       "appStoreUrl": "https://apps.apple.com/us/app/cozmo-one/id6749200149",
       "googlePlayUrl": "https://play.google.com/store/apps/details?id=app.cozmoone.user&hl=en"
     },
@@ -113,6 +120,7 @@
       "title": "Cozmo One Merchant",
       "description": "Merchant app for managing listings and orders on Cozmo One.",
       "iconName": "insights",
+      "coverImage": "https://lh3.googleusercontent.com/d/1kONARg6PLSMWiRr1Xl8mNcn8QJrQ9pyr",
       "appStoreUrl": "https://apps.apple.com/us/app/cozmo-one-merchant/id6749200210",
       "googlePlayUrl": "https://play.google.com/store/apps/details?id=app.cozmoone.merchant&hl=en"
     },
@@ -121,6 +129,7 @@
       "title": "Cozmo One Driver",
       "description": "Driver app for managing deliveries on Cozmo One.",
       "iconName": "insights",
+      "coverImage": "https://lh3.googleusercontent.com/d/1ApWBbqLe5-lIfFSOZiJ9VCA4WC61r81x",
       "appStoreUrl": "https://apps.apple.com/us/app/cozmo-one-driver/id6749200288",
       "googlePlayUrl": "https://play.google.com/store/apps/details?id=app.cozmoone.driver&hl=en"
     },
@@ -129,6 +138,7 @@
       "title": "Femalea",
       "description": "Multi-service marketplace for groceries, restaurants, and water delivery.",
       "iconName": "account_balance",
+      "coverImage": "https://lh3.googleusercontent.com/d/1Kgb0-V5wq1VzStMi4EEstoXwQJ8y85xs",
       "appStoreUrl": "https://apps.apple.com/us/app/femalea/id6737061240",
       "googlePlayUrl": "https://play.google.com/store/apps/details?id=app.femalea.client"
     },
@@ -137,6 +147,7 @@
       "title": "Femalea Merchant",
       "description": "Merchant app for inventory and order management on Femalea.",
       "iconName": "insights",
+      "coverImage": "https://lh3.googleusercontent.com/d/1sXrfUT8-w-V0NPoSy0RfI2IQ84tDhcAp",
       "appStoreUrl": "https://apps.apple.com/us/app/femalea-merchant/id6737065684",
       "googlePlayUrl": ""
     },
@@ -145,6 +156,7 @@
       "title": "Bespoke Coffee",
       "description": "E-commerce app for premium coffee and honey products.",
       "iconName": "insights",
+      "coverImage": "",
       "appStoreUrl": "",
       "googlePlayUrl": ""
     },
@@ -153,6 +165,7 @@
       "title": "Bespoke Merchant",
       "description": "Merchant app for sellers on Bespoke Coffee.",
       "iconName": "insights",
+      "coverImage": "",
       "appStoreUrl": "",
       "googlePlayUrl": ""
     },
@@ -161,6 +174,7 @@
       "title": "Otelat",
       "description": "Online shopping marketplace for customers.",
       "iconName": "account_balance",
+      "coverImage": "https://lh3.googleusercontent.com/d/1XxZguUkuMUaOeRujuIyhzCtIm6dwswiV",
       "appStoreUrl": "https://apps.apple.com/eg/app/otelat/id6502847375",
       "googlePlayUrl": "https://play.google.com/store/apps/details?id=com.otelat.user"
     },
@@ -169,6 +183,7 @@
       "title": "Otelat Merchant",
       "description": "Merchant app for store operations on Otelat.",
       "iconName": "insights",
+      "coverImage": "https://lh3.googleusercontent.com/d/1QJ2dK3rN2-xloFjEKDg1yql3RfuADKL0",
       "appStoreUrl": "https://apps.apple.com/eg/app/otelat-merchant/id6503255307",
       "googlePlayUrl": ""
     },
@@ -177,6 +192,7 @@
       "title": "Fresh Food",
       "description": "Online store for fresh fruits and vegetables.",
       "iconName": "insights",
+      "coverImage": "https://lh3.googleusercontent.com/d/1QE_Y5eAO0HEzCgExQl4vntWnvZGtHGYi",
       "appStoreUrl": "https://apps.apple.com/us/app/fresh-food/id1603985412",
       "googlePlayUrl": ""
     },
@@ -185,6 +201,7 @@
       "title": "Abkhus",
       "description": "Digital e-wallet application.",
       "iconName": "account_balance",
+      "coverImage": "https://lh3.googleusercontent.com/d/1hU0nFa2UsgHBQe4glL_0vhmqTCxltP2Z",
       "appStoreUrl": "https://apps.apple.com/us/app/abkhus-%D8%A3%D8%A8%D8%AE%D8%B5/id1583847415",
       "googlePlayUrl": ""
     },
@@ -193,6 +210,7 @@
       "title": "CUTZ",
       "description": "Online store for fresh meat, poultry, and seafood.",
       "iconName": "insights",
+      "coverImage": "https://lh3.googleusercontent.com/d/1RrTrWSBgqtZdMmDWgpT_jk8rnVSCKa7B",
       "appStoreUrl": "",
       "googlePlayUrl": ""
     },
@@ -201,6 +219,7 @@
       "title": "Future Lab",
       "description": "Medical consultation and diagnostic test booking app.",
       "iconName": "insights",
+      "coverImage": "https://lh3.googleusercontent.com/d/1pZftSp8NodVWxJe31c2EymE_SqNaq0Lo",
       "appStoreUrl": "",
       "googlePlayUrl": ""
     },
@@ -209,6 +228,7 @@
       "title": "Doha Oryx",
       "description": "Travel booking app for visitors to Qatar.",
       "iconName": "insights",
+      "coverImage": "https://lh3.googleusercontent.com/d/13ZKK7xDRisimixLIzs4O5IrkgWkvm8fR",
       "appStoreUrl": "",
       "googlePlayUrl": "https://play.google.com/store/apps/details?id=com.troylab.tourismApp"
     },
@@ -217,6 +237,7 @@
       "title": "Handwritten Text Recognition",
       "description": "AI system using TrOCR and CRAFT to transcribe handwritten text via a FastAPI WebSocket service.",
       "iconName": "insights",
+      "coverImage": "",
       "appStoreUrl": "",
       "googlePlayUrl": ""
     }
