@@ -70,6 +70,7 @@ final class _HomeViewState extends State<HomeView> {
 
     if (targetKey != null && targetKey.currentContext != null) {
       Scrollable.ensureVisible(
+        alignment: 1.0,
         targetKey.currentContext!,
         duration: const Duration(milliseconds: 600),
         curve: Curves.easeInOut,
