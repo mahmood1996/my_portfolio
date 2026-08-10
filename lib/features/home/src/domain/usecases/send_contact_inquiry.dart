@@ -1,8 +1,8 @@
 import '../entities/contact_inquiry.dart';
-import '../repositories/portfolio_repository.dart';
+import '../repositories/contact_inquiry_repository.dart';
 
 class SendContactInquiry {
-  final PortfolioRepository repository;
+  final ContactInquiryRepository repository;
 
   SendContactInquiry(this.repository);
 
@@ -10,3 +10,4 @@ class SendContactInquiry {
     return repository.sendContactInquiry(inquiry);
   }
 }
+

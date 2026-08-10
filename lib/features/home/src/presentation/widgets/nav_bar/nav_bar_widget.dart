@@ -5,7 +5,8 @@ import 'package:portfolio/core/l10n/app_localizations.dart';
 import 'package:portfolio/design_system/theme/app_colors.dart';
 import 'package:portfolio/design_system/theme/app_fonts.dart';
 import '../../bloc/portfolio_bloc.dart';
-import '../../bloc/portfolio_event.dart';
+import '../../cubit/download_cv_cubit.dart';
+import '../../cubit/download_cv_state.dart';
 import 'nav_link_widget.dart';
 
 final class NavBarWidget extends StatelessWidget
@@ -111,29 +112,56 @@ final class NavBarWidget extends StatelessWidget
                   // Download CV Button
                   Row(
                     children: [
-                      ElevatedButton(
-                        onPressed: () {
-                          context.read<PortfolioBloc>().add(DownloadCVEvent());
+                      BlocBuilder<DownloadCVCubit, DownloadCVState>(
+                        builder: (context, downloadState) {
+                          final isDownloading =
+                              downloadState.status == DownloadCVStatus.inProgress;
+
+                          return ElevatedButton(
+                            onPressed: isDownloading
+                                ? null
+                                : () {
+                                    final cvUrl = context
+                                            .read<PortfolioBloc>()
+                                            .state
+                                            .data
+                                            ?.about
+                                            .cvUrl ??
+                                        '';
+                                    context
+                                        .read<DownloadCVCubit>()
+                                        .downloadCV(cvUrl);
+                                  },
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: AppColors.primary,
+                              foregroundColor: AppColors.onPrimary,
+                              padding: const EdgeInsets.symmetric(
+                                horizontal: 24,
+                                vertical: 14,
+                              ),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(8),
+                              ),
+                              elevation: 0,
+                            ),
+                            child: isDownloading
+                                ? const SizedBox(
+                                    height: 16,
+                                    width: 16,
+                                    child: CircularProgressIndicator(
+                                      strokeWidth: 2,
+                                      color: AppColors.onPrimary,
+                                    ),
+                                  )
+                                : Text(
+                                    l10n.downloadCv,
+                                    style: const TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 14,
+                                    ),
+                                  ),
+                          );
                         },
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: AppColors.primary,
-                          foregroundColor: AppColors.onPrimary,
-                          padding: const EdgeInsets.symmetric(
-                            horizontal: 24,
-                            vertical: 14,
-                          ),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(8),
-                          ),
-                          elevation: 0,
-                        ),
-                        child: Text(
-                          l10n.downloadCv,
-                          style: const TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 14,
-                          ),
-                        ),
                       ),
 
                       if (!isDesktop)

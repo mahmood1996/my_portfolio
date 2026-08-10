@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../../../design_system/theme/app_colors.dart';
-
 import '../bloc/portfolio_bloc.dart';
 import '../bloc/portfolio_event.dart';
 import '../bloc/portfolio_state.dart';
+import '../cubit/download_cv_cubit.dart';
+import '../cubit/download_cv_state.dart';
 
 import 'contact_section/contact_section_widget.dart';
 import 'experience_section/sliver_experience_section.dart';
@@ -16,6 +16,8 @@ import 'projects_section/sliver_projects_section.dart';
 import 'readings_section/sliver_readings_section.dart';
 import 'skills_section/skills_section_widget.dart';
 
+import '../../../../../design_system/theme/app_colors.dart';
+
 final class HomeView extends StatefulWidget {
   const HomeView({super.key});
 
@@ -24,8 +26,6 @@ final class HomeView extends StatefulWidget {
 }
 
 final class _HomeViewState extends State<HomeView> {
-  final ScrollController _scrollController = ScrollController();
-
   final GlobalKey _aboutKey = GlobalKey();
   final GlobalKey _experienceKey = GlobalKey();
   final GlobalKey _projectsKey = GlobalKey();
@@ -37,12 +37,6 @@ final class _HomeViewState extends State<HomeView> {
   void initState() {
     super.initState();
     context.read<PortfolioBloc>().add(LoadPortfolioDataEvent());
-  }
-
-  @override
-  void dispose() {
-    _scrollController.dispose();
-    super.dispose();
   }
 
   void _scrollToSection(String sectionKey) {
@@ -82,24 +76,26 @@ final class _HomeViewState extends State<HomeView> {
     return Scaffold(
       backgroundColor: AppColors.background,
       appBar: NavBarWidget(onNavSelected: _scrollToSection),
-      body: BlocConsumer<PortfolioBloc, PortfolioState>(
+      body: BlocListener<DownloadCVCubit, DownloadCVState>(
         listener: (context, state) {
-          if (state.toastNotification != null) {
+          if (state.status == DownloadCVStatus.failure &&
+              state.errorMessage != null) {
             ScaffoldMessenger.of(context).showSnackBar(
               SnackBar(
-                content: Text(state.toastNotification!),
+                content: Text(state.errorMessage!),
                 backgroundColor: AppColors.surfaceContainerHigh,
                 behavior: SnackBarBehavior.floating,
               ),
             );
           }
         },
-        builder: (context, state) {
-          if (state.isLoading) {
-            return const Center(
-              child: CircularProgressIndicator(color: AppColors.primary),
-            );
-          }
+        child: BlocBuilder<PortfolioBloc, PortfolioState>(
+          builder: (context, state) {
+            if (state.isLoading) {
+              return const Center(
+                child: CircularProgressIndicator(color: AppColors.primary),
+              );
+            }
 
           if (state.errorMessage != null && state.data == null) {
             return Center(
@@ -115,7 +111,6 @@ final class _HomeViewState extends State<HomeView> {
           if (data == null) return const SizedBox.shrink();
 
           return CustomScrollView(
-            controller: _scrollController,
             slivers: [
               KeyedSubtree(
                 key: _aboutKey,
@@ -128,14 +123,25 @@ final class _HomeViewState extends State<HomeView> {
                 ),
               ),
 
-              KeyedSubtree(
-                key: _experienceKey,
-                child: SliverExperienceSection(experiences: data.experiences),
+              SliverMainAxisGroup(
+                slivers: [
+                  SliverToBoxAdapter(
+                    child: KeyedSubtree(
+                      key: _experienceKey,
+                      child: SizedBox(height: 1),
+                    ),
+                  ),
+
+                  SliverExperienceSection(experiences: data.experiences),
+                ],
               ),
 
-              KeyedSubtree(
-                key: _projectsKey,
-                child: SliverProjectsSection(projects: data.projects),
+              SliverMainAxisGroup(
+                slivers: [
+                  KeyedSubtree(key: _projectsKey, child: SliverToBoxAdapter()),
+
+                  SliverProjectsSection(projects: data.projects),
+                ],
               ),
 
               KeyedSubtree(
@@ -145,9 +151,12 @@ final class _HomeViewState extends State<HomeView> {
                 ),
               ),
 
-              KeyedSubtree(
-                key: _readingsKey,
-                child: SliverReadingsSection(readings: data.readings),
+              SliverMainAxisGroup(
+                slivers: [
+                  KeyedSubtree(key: _readingsKey, child: SliverToBoxAdapter()),
+
+                  SliverReadingsSection(readings: data.readings),
+                ],
               ),
 
               KeyedSubtree(
@@ -164,6 +173,7 @@ final class _HomeViewState extends State<HomeView> {
           );
         },
       ),
-    );
-  }
+    ),
+  );
+}
 }

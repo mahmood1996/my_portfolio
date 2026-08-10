@@ -7,6 +7,7 @@ class AboutModel extends AboutEntity {
     required super.headlinePart1,
     required super.headlinePart2,
     required super.bio,
+    super.cvUrl = '',
   });
 
   factory AboutModel.fromJson(Map<String, dynamic> json) {
@@ -16,6 +17,7 @@ class AboutModel extends AboutEntity {
       headlinePart1: json['headlinePart1'] ?? '',
       headlinePart2: json['headlinePart2'] ?? '',
       bio: json['bio'] ?? '',
+      cvUrl: json['cvUrl'] ?? '',
     );
   }
 
@@ -26,6 +28,7 @@ class AboutModel extends AboutEntity {
       'headlinePart1': headlinePart1,
       'headlinePart2': headlinePart2,
       'bio': bio,
+      'cvUrl': cvUrl,
     };
   }
 }

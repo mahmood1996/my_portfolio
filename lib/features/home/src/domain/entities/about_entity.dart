@@ -6,6 +6,7 @@ class AboutEntity extends Equatable {
   final String headlinePart1;
   final String headlinePart2;
   final String bio;
+  final String cvUrl;
 
   const AboutEntity({
     required this.name,
@@ -13,8 +14,16 @@ class AboutEntity extends Equatable {
     required this.headlinePart1,
     required this.headlinePart2,
     required this.bio,
+    this.cvUrl = '',
   });
 
   @override
-  List<Object?> get props => [name, tagline, headlinePart1, headlinePart2, bio];
+  List<Object?> get props => [
+        name,
+        tagline,
+        headlinePart1,
+        headlinePart2,
+        bio,
+        cvUrl,
+      ];
 }

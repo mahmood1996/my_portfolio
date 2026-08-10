@@ -32,3 +32,4 @@ class ContactInfoModel extends ContactInfoEntity {
     };
   }
 }
+

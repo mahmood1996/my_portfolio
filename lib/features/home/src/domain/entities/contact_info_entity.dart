@@ -27,3 +27,4 @@ class ContactInfoEntity extends Equatable {
         gitLabUrl,
       ];
 }
+

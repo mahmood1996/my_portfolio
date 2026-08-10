@@ -1,9 +1,7 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:portfolio/features/home/src/data/datasources/portfolio_local_data_source.dart';
 import 'package:portfolio/features/home/src/data/repositories/portfolio_repository_impl.dart';
-import 'package:portfolio/features/home/src/domain/entities/contact_inquiry.dart';
 import 'package:portfolio/features/home/src/domain/usecases/get_portfolio_data.dart';
-import 'package:portfolio/features/home/src/domain/usecases/send_contact_inquiry.dart';
 import 'package:portfolio/features/home/src/presentation/bloc/portfolio_bloc.dart';
 import 'package:portfolio/features/home/src/presentation/bloc/portfolio_event.dart';
 import 'package:portfolio/features/home/src/presentation/bloc/portfolio_state.dart';
@@ -11,20 +9,19 @@ import 'package:portfolio/features/home/src/presentation/bloc/portfolio_state.da
 void main() {
   late PortfolioBloc portfolioBloc;
   late GetPortfolioData getPortfolioData;
-  late SendContactInquiry sendContactInquiry;
   late PortfolioRepositoryImpl repository;
 
   setUp(() {
     TestWidgetsFlutterBinding.ensureInitialized();
 
     final dataSource = PortfolioLocalDataSourceImpl();
-    repository = PortfolioRepositoryImpl(localDataSource: dataSource);
+    repository = PortfolioRepositoryImpl(
+      localDataSource: dataSource,
+    );
     getPortfolioData = GetPortfolioData(repository);
-    sendContactInquiry = SendContactInquiry(repository);
 
     portfolioBloc = PortfolioBloc(
       getPortfolioData: getPortfolioData,
-      sendContactInquiry: sendContactInquiry,
     );
   });
 
@@ -50,6 +47,11 @@ void main() {
               .having(
                 (s) => s.data?.about.name.isNotEmpty,
                 'about.name is Not Empty',
+                true,
+              )
+              .having(
+                (s) => s.data?.about.cvUrl.isNotEmpty,
+                'about.cvUrl is Not Empty',
                 true,
               )
               .having(
@@ -81,32 +83,5 @@ void main() {
       );
     },
   );
-
-  test('SubmitContactInquiryEvent should process strategic inquiry', () async {
-    const inquiry = ContactInquiry(
-      fullName: 'Jane Developer',
-      corporateEmail: 'jane@enterprise.com',
-      projectSummary: 'Need architectural overhaul.',
-    );
-
-    portfolioBloc.add(const SubmitContactInquiryEvent(inquiry));
-
-    await expectLater(
-      portfolioBloc.stream,
-      emitsInOrder([
-        const PortfolioState(inquiryStatus: InquiryStatus.submitting),
-        isA<PortfolioState>()
-            .having(
-              (s) => s.inquiryStatus,
-              'inquiryStatus',
-              InquiryStatus.success,
-            )
-            .having(
-              (s) => s.inquiryMessage,
-              'inquiryMessage',
-              'Strategic inquiry submitted successfully!',
-            ),
-      ]),
-    );
-  });
 }
+

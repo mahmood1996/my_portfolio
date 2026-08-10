@@ -13,4 +13,7 @@ class ContactInquiry extends Equatable {
 
   @override
   List<Object?> get props => [fullName, corporateEmail, projectSummary];
+
+  bool get isValid =>
+      fullName.trim().isNotEmpty && corporateEmail.trim().isNotEmpty;
 }

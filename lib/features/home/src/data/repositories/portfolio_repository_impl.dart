@@ -1,11 +1,12 @@
-import '../../domain/entities/contact_inquiry.dart';
 import '../../domain/repositories/portfolio_repository.dart';
 import '../datasources/portfolio_local_data_source.dart';
 
-class PortfolioRepositoryImpl implements PortfolioRepository {
+final class PortfolioRepositoryImpl implements PortfolioRepository {
   final PortfolioLocalDataSource localDataSource;
 
-  PortfolioRepositoryImpl({required this.localDataSource});
+  PortfolioRepositoryImpl({
+    required this.localDataSource,
+  });
 
   @override
   Future<PortfolioData> getPortfolioData() async {
@@ -25,11 +26,5 @@ class PortfolioRepositoryImpl implements PortfolioRepository {
       readings: readings,
     );
   }
-
-  @override
-  Future<bool> sendContactInquiry(ContactInquiry inquiry) async {
-    // Simulate network delay for sending strategic inquiry
-    await Future.delayed(const Duration(seconds: 1));
-    return inquiry.fullName.isNotEmpty && inquiry.corporateEmail.isNotEmpty;
-  }
 }
+
