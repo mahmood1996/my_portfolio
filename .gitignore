@@ -46,4 +46,5 @@ app.*.map.json
 /android/app/profile
 /android/app/release
 
+# Temporary files
 /stitch_assets/
