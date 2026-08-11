@@ -4,7 +4,8 @@
     "tagline": "SENIOR FLUTTER DEVELOPER",
     "headlinePart1": "Building High-Performance ",
     "headlinePart2": "Mobile Experiences",
-    "bio": "Senior Flutter Developer with 6+ years of experience building and shipping production mobile applications across Android, iOS, Web, and Windows. Strong background in Test-Driven Development (TDD), Clean Architecture, and modular design, with over 20 published applications."
+    "bio": "Senior Flutter Developer with 6+ years of experience building and shipping production mobile applications across Android, iOS, Web, and Windows. Strong background in Test-Driven Development (TDD), Clean Architecture, and modular design, with over 20 published applications.",
+    "cvUrl": "https://drive.google.com/file/d/1kROcrtu1ordbHv8zrH4GPF6VePhRFynz/view?usp=sharing"
   },
   "contact": {
     "email": "mahmood.abdelrazek@outlook.com",
@@ -12,7 +13,8 @@
     "location": "Cairo, Egypt",
     "linkedInUrl": "https://www.linkedin.com/in/mahmood-abd-elrazek-ali-845234132",
     "gitHubUrl": "https://github.com/mahmood1996",
-    "gitLabUrl": "https://gitlab.com/aooozzzz96"
+    "gitLabUrl": "https://gitlab.com/aooozzzz96",
+    "web3FormsAccessKey": "1a8058ab-ef2a-480f-8fa0-e9f64a51170c"
   },
   "experiences": [
     {
