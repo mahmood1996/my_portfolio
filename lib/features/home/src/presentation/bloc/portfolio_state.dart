@@ -1,5 +1,5 @@
 import 'package:equatable/equatable.dart';
-import 'package:portfolio/features/home/src/domain/repositories/portfolio_repository.dart';
+import '../../domain/repositories/portfolio_repository.dart';
 
 class PortfolioState extends Equatable {
   final bool isLoading;

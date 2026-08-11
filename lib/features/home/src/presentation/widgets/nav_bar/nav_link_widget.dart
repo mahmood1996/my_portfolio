@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio/design_system/theme/app_colors.dart';
+import '../../../../../../design_system/theme/app_colors.dart';
 import '../shared/hover_tracking.dart';
 
 final class NavLinkWidget extends StatelessWidget {

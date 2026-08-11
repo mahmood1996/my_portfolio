@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio/core/l10n/app_localizations.dart';
-import 'package:portfolio/design_system/theme/app_colors.dart';
-import 'package:portfolio/features/home/src/domain/entities/skill_entity.dart';
+import '../../../../../../core/l10n/app_localizations.dart';
+import '../../../../../../design_system/theme/app_colors.dart';
+import '../../../domain/entities/skill_entity.dart';
 import '../shared/responsive_section_widget.dart';
 import 'skill_badge_widget.dart';
 

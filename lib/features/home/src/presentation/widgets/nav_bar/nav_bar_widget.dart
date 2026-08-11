@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:responsive_builder/responsive_builder.dart';
-import 'package:portfolio/core/l10n/app_localizations.dart';
-import 'package:portfolio/design_system/theme/app_colors.dart';
-import 'package:portfolio/design_system/theme/app_fonts.dart';
+import '../../../../../../core/l10n/app_localizations.dart';
+import '../../../../../../design_system/theme/app_colors.dart';
+import '../../../../../../design_system/theme/app_fonts.dart';
 import '../../bloc/portfolio_bloc.dart';
 import '../../cubit/download_cv_cubit.dart';
 import '../../cubit/download_cv_state.dart';

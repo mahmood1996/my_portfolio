@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+
 import 'core/l10n/app_localizations.dart';
-import 'router/app_router.dart';
 import 'design_system/theme/app_theme.dart';
+import 'router/app_router.dart';
 
 void main() => runApp(const PortfolioApp());
 

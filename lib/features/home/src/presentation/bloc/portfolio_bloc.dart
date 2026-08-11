@@ -1,5 +1,5 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:portfolio/features/home/src/domain/usecases/get_portfolio_data.dart';
+import '../../domain/usecases/get_portfolio_data.dart';
 import 'portfolio_event.dart';
 import 'portfolio_state.dart';
 

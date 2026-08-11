@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
+
 import '../../../../../../core/l10n/app_localizations.dart';
 import '../../../../../../design_system/asset_paths/app_assets.dart';
 import '../../../domain/entities/project_entity.dart';
 import 'store_button_widget.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 final class StoresButtons extends StatelessWidget {
   const StoresButtons({super.key, required this._project});

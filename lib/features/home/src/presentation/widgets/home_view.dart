@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../../design_system/theme/app_colors.dart';
+import '../../domain/repositories/portfolio_repository.dart';
 import '../bloc/portfolio_bloc.dart';
 import '../bloc/portfolio_event.dart';
 import '../bloc/portfolio_state.dart';
 import '../cubit/download_cv_cubit.dart';
 import '../cubit/download_cv_state.dart';
-
 import 'contact_section/contact_section_widget.dart';
 import 'experience_section/sliver_experience_section.dart';
 import 'footer_section/footer_section_widget.dart';
@@ -15,8 +16,6 @@ import 'nav_bar/nav_bar_widget.dart';
 import 'projects_section/sliver_projects_section.dart';
 import 'readings_section/sliver_readings_section.dart';
 import 'skills_section/skills_section_widget.dart';
-
-import '../../../../../design_system/theme/app_colors.dart';
 
 final class HomeView extends StatefulWidget {
   const HomeView({super.key});
@@ -36,31 +35,20 @@ final class _HomeViewState extends State<HomeView> {
   @override
   void initState() {
     super.initState();
+
     context.read<PortfolioBloc>().add(LoadPortfolioDataEvent());
   }
 
   void _scrollToSection(String sectionKey) {
-    GlobalKey? targetKey;
-    switch (sectionKey) {
-      case 'about':
-        targetKey = _aboutKey;
-        break;
-      case 'experience':
-        targetKey = _experienceKey;
-        break;
-      case 'projects':
-        targetKey = _projectsKey;
-        break;
-      case 'skills':
-        targetKey = _skillsKey;
-        break;
-      case 'readings':
-        targetKey = _readingsKey;
-        break;
-      case 'contact':
-        targetKey = _contactKey;
-        break;
-    }
+    final targetKey = switch (sectionKey) {
+      'about' => _aboutKey,
+      'skills' => _skillsKey,
+      'contact' => _contactKey,
+      'readings' => _readingsKey,
+      'projects' => _projectsKey,
+      'experience' => _experienceKey,
+      _ => null,
+    };
 
     if (targetKey != null && targetKey.currentContext != null) {
       Scrollable.ensureVisible(
@@ -75,7 +63,7 @@ final class _HomeViewState extends State<HomeView> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.background,
-      appBar: NavBarWidget(onNavSelected: _scrollToSection),
+
       body: BlocListener<DownloadCVCubit, DownloadCVState>(
         listener: (context, state) {
           if (state.status == DownloadCVStatus.failure &&
@@ -89,91 +77,102 @@ final class _HomeViewState extends State<HomeView> {
             );
           }
         },
+
         child: BlocBuilder<PortfolioBloc, PortfolioState>(
           builder: (context, state) {
-            if (state.isLoading) {
-              return const Center(
+            return switch ((state.isLoading, state.errorMessage, state.data)) {
+              (true, _, _) => const Center(
                 child: CircularProgressIndicator(color: AppColors.primary),
-              );
-            }
-
-          if (state.errorMessage != null && state.data == null) {
-            return Center(
-              child: Text(
-                state.errorMessage!,
-                style: const TextStyle(color: Colors.red),
               ),
-            );
-          }
 
-          final data = state.data;
-
-          if (data == null) return const SizedBox.shrink();
-
-          return CustomScrollView(
-            slivers: [
-              KeyedSubtree(
-                key: _aboutKey,
-                child: SliverToBoxAdapter(
-                  child: HeroSectionWidget(
-                    about: data.about,
-                    onExploreWork: () => _scrollToSection('projects'),
-                    onPartnerWithMe: () => _scrollToSection('contact'),
-                  ),
+              (false, String errorMessage, null) => Center(
+                child: Text(
+                  errorMessage,
+                  style: const TextStyle(color: Colors.red),
                 ),
               ),
 
-              SliverMainAxisGroup(
+              (false, null, PortfolioData data) => CustomScrollView(
                 slivers: [
-                  SliverToBoxAdapter(
-                    child: KeyedSubtree(
-                      key: _experienceKey,
-                      child: SizedBox(height: 1),
+                  SliverAppBar(
+                    pinned: true,
+                    floating: true,
+                    expandedHeight: 72,
+                    collapsedHeight: 72,
+                    backgroundColor: AppColors.background,
+                    surfaceTintColor: AppColors.background,
+                    flexibleSpace: NavBarWidget(
+                      onNavSelected: _scrollToSection,
                     ),
                   ),
 
-                  SliverExperienceSection(experiences: data.experiences),
+                  SliverToBoxAdapter(
+                    child: SizedBox(
+                      key: _aboutKey,
+                      child: HeroSectionWidget(
+                        about: data.about,
+                        onExploreWork: () => _scrollToSection('projects'),
+                        onPartnerWithMe: () => _scrollToSection('contact'),
+                      ),
+                    ),
+                  ),
+
+                  SliverMainAxisGroup(
+                    slivers: [
+                      SliverToBoxAdapter(
+                        child: SizedBox(key: _experienceKey, height: 1),
+                      ),
+
+                      SliverExperienceSection(experiences: data.experiences),
+                    ],
+                  ),
+
+                  SliverMainAxisGroup(
+                    slivers: [
+                      SliverToBoxAdapter(
+                        child: SizedBox(key: _projectsKey, height: 1),
+                      ),
+
+                      SliverProjectsSection(projects: data.projects),
+                    ],
+                  ),
+
+                  SliverToBoxAdapter(
+                    child: SizedBox(
+                      key: _skillsKey,
+
+                      child: SkillsSectionWidget(skills: data.skills),
+                    ),
+                  ),
+
+                  SliverMainAxisGroup(
+                    slivers: [
+                      SliverToBoxAdapter(
+                        child: SizedBox(key: _readingsKey, height: 1),
+                      ),
+
+                      SliverReadingsSection(readings: data.readings),
+                    ],
+                  ),
+
+                  SliverToBoxAdapter(
+                    child: SizedBox(
+                      key: _contactKey,
+                      child: ContactSectionWidget(contactInfo: data.contact),
+                    ),
+                  ),
+
+                  SliverToBoxAdapter(
+                    child: FooterSectionWidget(onNavSelected: _scrollToSection),
+                  ),
                 ],
               ),
 
-              SliverMainAxisGroup(
-                slivers: [
-                  KeyedSubtree(key: _projectsKey, child: SliverToBoxAdapter()),
-
-                  SliverProjectsSection(projects: data.projects),
-                ],
-              ),
-
-              KeyedSubtree(
-                key: _skillsKey,
-                child: SliverToBoxAdapter(
-                  child: SkillsSectionWidget(skills: data.skills),
-                ),
-              ),
-
-              SliverMainAxisGroup(
-                slivers: [
-                  KeyedSubtree(key: _readingsKey, child: SliverToBoxAdapter()),
-
-                  SliverReadingsSection(readings: data.readings),
-                ],
-              ),
-
-              KeyedSubtree(
-                key: _contactKey,
-                child: SliverToBoxAdapter(
-                  child: ContactSectionWidget(contactInfo: data.contact),
-                ),
-              ),
-
-              SliverToBoxAdapter(
-                child: FooterSectionWidget(onNavSelected: _scrollToSection),
-              ),
-            ],
-          );
-        },
+              _ => const SizedBox.shrink(),
+            };
+          },
+        ),
       ),
-    ),
-  );
-}
+    );
+  }
 }

@@ -2,10 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:portfolio/features/home/src/domain/entities/contact_info_entity.dart';
-import 'package:portfolio/core/l10n/app_localizations.dart';
-import 'package:portfolio/design_system/theme/app_colors.dart';
-import 'package:portfolio/features/home/src/domain/entities/contact_inquiry.dart';
+
+import '../../../../../../core/l10n/app_localizations.dart';
+import '../../../../../../design_system/theme/app_colors.dart';
+import '../../../domain/entities/contact_info_entity.dart';
+import '../../../domain/entities/contact_inquiry.dart';
 import '../../cubit/contact_inquiry_cubit.dart';
 import '../../cubit/contact_inquiry_state.dart';
 import '../shared/responsive_section_widget.dart';
@@ -89,142 +90,29 @@ final class _ContactSectionWidgetState extends State<ContactSectionWidget> {
             const SizedBox(height: 48),
 
             // Email Info
-            InkWell(
+            _ContactInfoTile(
+              icon: Icons.mail_outline,
+              label: l10n.emailLabel,
+              value: widget.contactInfo.email,
               onTap: _launchDirectEmail,
-              borderRadius: BorderRadius.circular(12),
-              child: Padding(
-                padding: const EdgeInsets.symmetric(vertical: 4.0),
-                child: Row(
-                  children: [
-                    Container(
-                      width: 48,
-                      height: 48,
-                      decoration: BoxDecoration(
-                        color: AppColors.primaryContainer.withValues(alpha: 0.2),
-                        shape: BoxShape.circle,
-                        border: Border.all(
-                          color: AppColors.primary.withValues(alpha: 0.3),
-                        ),
-                      ),
-                      child: const Icon(
-                        Icons.mail_outline,
-                        color: AppColors.primary,
-                        size: 20,
-                      ),
-                    ),
-                    const SizedBox(width: 16),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          l10n.emailLabel,
-                          style: Theme.of(context)
-                              .textTheme
-                              .labelLarge
-                              ?.copyWith(color: AppColors.onSurfaceVariant),
-                        ),
-                        const SizedBox(height: 4),
-                        Text(
-                          widget.contactInfo.email,
-                          style:
-                              Theme.of(context).textTheme.bodyLarge?.copyWith(
-                                    color: AppColors.onSurface,
-                                    fontWeight: FontWeight.w600,
-                                  ),
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
-              ),
             ),
             const SizedBox(height: 24),
 
             // Phone Info
-            Row(
-              children: [
-                Container(
-                  width: 48,
-                  height: 48,
-                  decoration: BoxDecoration(
-                    color: AppColors.primaryContainer.withValues(alpha: 0.2),
-                    shape: BoxShape.circle,
-                    border: Border.all(
-                      color: AppColors.primary.withValues(alpha: 0.3),
-                    ),
-                  ),
-                  child: const Icon(
-                    Icons.phone_outlined,
-                    color: AppColors.primary,
-                    size: 20,
-                  ),
-                ),
-                const SizedBox(width: 16),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      l10n.phoneLabel,
-                      style: Theme.of(context)
-                          .textTheme
-                          .labelLarge
-                          ?.copyWith(color: AppColors.onSurfaceVariant),
-                    ),
-                    const SizedBox(height: 4),
-                    Text(
-                      widget.contactInfo.phone,
-                      style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                            color: AppColors.onSurface,
-                            fontWeight: FontWeight.w600,
-                          ),
-                    ),
-                  ],
-                ),
-              ],
+            _ContactInfoTile(
+              icon: Icons.phone_outlined,
+              label: l10n.phoneLabel,
+              value: widget.contactInfo.phone,
             ),
             const SizedBox(height: 24),
 
             // Location Info
-            Row(
-              children: [
-                Container(
-                  width: 48,
-                  height: 48,
-                  decoration: BoxDecoration(
-                    color: AppColors.secondaryContainer.withValues(alpha: 0.2),
-                    shape: BoxShape.circle,
-                    border: Border.all(
-                      color: AppColors.secondary.withValues(alpha: 0.3),
-                    ),
-                  ),
-                  child: const Icon(
-                    Icons.location_on_outlined,
-                    color: AppColors.secondary,
-                    size: 20,
-                  ),
-                ),
-                const SizedBox(width: 16),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      l10n.locationLabel,
-                      style: Theme.of(context)
-                          .textTheme
-                          .labelLarge
-                          ?.copyWith(color: AppColors.onSurfaceVariant),
-                    ),
-                    const SizedBox(height: 4),
-                    Text(
-                      widget.contactInfo.location,
-                      style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                            color: AppColors.onSurface,
-                            fontWeight: FontWeight.w600,
-                          ),
-                    ),
-                  ],
-                ),
-              ],
+            _ContactInfoTile(
+              icon: Icons.location_on_outlined,
+              label: l10n.locationLabel,
+              value: widget.contactInfo.location,
+              iconColor: AppColors.secondary,
+              containerColor: AppColors.secondaryContainer,
             ),
           ],
         );
@@ -297,66 +185,31 @@ final class _ContactSectionWidgetState extends State<ContactSectionWidget> {
       builder: (context, state) {
         final isSubmitting = state.status == ContactInquiryStatus.submitting;
 
-        final nameField = Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              l10n.formFullNameLabel,
-              style: Theme.of(context)
-                  .textTheme
-                  .labelLarge
-                  ?.copyWith(color: AppColors.onSurfaceVariant),
-            ),
-            const SizedBox(height: 8),
-            TextFormField(
-              controller: _nameController,
-              style: const TextStyle(color: AppColors.onSurface),
-              decoration: InputDecoration(
-                hintText: l10n.formFullNameHint,
-                hintStyle: const TextStyle(color: AppColors.outline),
-                enabledBorder: const UnderlineInputBorder(
-                  borderSide: BorderSide(color: AppColors.outlineVariant),
-                ),
-                focusedBorder: const UnderlineInputBorder(
-                  borderSide: BorderSide(color: AppColors.primary),
-                ),
-              ),
-              validator: (val) =>
-                  val == null || val.trim().isEmpty ? l10n.formFieldRequired : null,
-            ),
-          ],
+        final nameField = _ContactFormField(
+          label: l10n.formFullNameLabel,
+          hintText: l10n.formFullNameHint,
+          controller: _nameController,
+          validator: (val) =>
+              val == null || val.trim().isEmpty ? l10n.formFieldRequired : null,
         );
 
-        final emailField = Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              l10n.formCorporateEmailLabel,
-              style: Theme.of(context)
-                  .textTheme
-                  .labelLarge
-                  ?.copyWith(color: AppColors.onSurfaceVariant),
-            ),
-            const SizedBox(height: 8),
-            TextFormField(
-              controller: _emailController,
-              style: const TextStyle(color: AppColors.onSurface),
-              decoration: InputDecoration(
-                hintText: l10n.formCorporateEmailHint,
-                hintStyle: const TextStyle(color: AppColors.outline),
-                enabledBorder: const UnderlineInputBorder(
-                  borderSide: BorderSide(color: AppColors.outlineVariant),
-                ),
-                focusedBorder: const UnderlineInputBorder(
-                  borderSide: BorderSide(color: AppColors.primary),
-                ),
-              ),
-              validator: (val) =>
-                  val == null || !val.contains('@') || val.trim().length < 5
-                      ? l10n.formEmailInvalid
-                      : null,
-            ),
-          ],
+        final emailField = _ContactFormField(
+          label: l10n.formCorporateEmailLabel,
+          hintText: l10n.formCorporateEmailHint,
+          controller: _emailController,
+          validator: (val) =>
+              val == null || !val.contains('@') || val.trim().length < 5
+                  ? l10n.formEmailInvalid
+                  : null,
+        );
+
+        final summaryField = _ContactFormField(
+          label: l10n.formProjectSummaryLabel,
+          hintText: l10n.formProjectSummaryHint,
+          controller: _summaryController,
+          maxLines: 4,
+          validator: (val) =>
+              val == null || val.trim().isEmpty ? l10n.formFieldRequired : null,
         );
 
         return Container(
@@ -385,31 +238,7 @@ final class _ContactSectionWidgetState extends State<ContactSectionWidget> {
                   emailField,
                 ],
                 const SizedBox(height: 32),
-                Text(
-                  l10n.formProjectSummaryLabel,
-                  style: Theme.of(context)
-                      .textTheme
-                      .labelLarge
-                      ?.copyWith(color: AppColors.onSurfaceVariant),
-                ),
-                const SizedBox(height: 8),
-                TextFormField(
-                  controller: _summaryController,
-                  maxLines: 4,
-                  style: const TextStyle(color: AppColors.onSurface),
-                  decoration: InputDecoration(
-                    hintText: l10n.formProjectSummaryHint,
-                    hintStyle: const TextStyle(color: AppColors.outline),
-                    enabledBorder: const UnderlineInputBorder(
-                      borderSide: BorderSide(color: AppColors.outlineVariant),
-                    ),
-                    focusedBorder: const UnderlineInputBorder(
-                      borderSide: BorderSide(color: AppColors.primary),
-                    ),
-                  ),
-                  validator: (val) =>
-                      val == null || val.trim().isEmpty ? l10n.formFieldRequired : null,
-                ),
+                summaryField,
                 const SizedBox(height: 40),
                 SizedBox(
                   width: double.infinity,
@@ -450,3 +279,125 @@ final class _ContactSectionWidgetState extends State<ContactSectionWidget> {
     );
   }
 }
+
+class _ContactInfoTile extends StatelessWidget {
+  final IconData icon;
+  final String label;
+  final String value;
+  final Color iconColor;
+  final Color containerColor;
+  final VoidCallback? onTap;
+
+  const _ContactInfoTile({
+    required this.icon,
+    required this.label,
+    required this.value,
+    this.iconColor = AppColors.primary,
+    this.containerColor = AppColors.primaryContainer,
+    this.onTap,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    final content = Row(
+      children: [
+        Container(
+          width: 48,
+          height: 48,
+          decoration: BoxDecoration(
+            color: containerColor.withValues(alpha: 0.2),
+            shape: BoxShape.circle,
+            border: Border.all(
+              color: iconColor.withValues(alpha: 0.3),
+            ),
+          ),
+          child: Icon(icon, color: iconColor, size: 20),
+        ),
+        const SizedBox(width: 16),
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              label,
+              style: Theme.of(context)
+                  .textTheme
+                  .labelLarge
+                  ?.copyWith(color: AppColors.onSurfaceVariant),
+            ),
+            const SizedBox(height: 4),
+            Text(
+              value,
+              style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                    color: AppColors.onSurface,
+                    fontWeight: FontWeight.w600,
+                  ),
+            ),
+          ],
+        ),
+      ],
+    );
+
+    if (onTap != null) {
+      return InkWell(
+        onTap: onTap,
+        borderRadius: BorderRadius.circular(12),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(vertical: 4.0),
+          child: content,
+        ),
+      );
+    }
+
+    return content;
+  }
+}
+
+class _ContactFormField extends StatelessWidget {
+  final String label;
+  final String hintText;
+  final TextEditingController controller;
+  final String? Function(String?)? validator;
+  final int maxLines;
+
+  const _ContactFormField({
+    required this.label,
+    required this.hintText,
+    required this.controller,
+    this.validator,
+    this.maxLines = 1,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          label,
+          style: Theme.of(context)
+              .textTheme
+              .labelLarge
+              ?.copyWith(color: AppColors.onSurfaceVariant),
+        ),
+        const SizedBox(height: 8),
+        TextFormField(
+          controller: controller,
+          maxLines: maxLines,
+          style: const TextStyle(color: AppColors.onSurface),
+          decoration: InputDecoration(
+            hintText: hintText,
+            hintStyle: const TextStyle(color: AppColors.outline),
+            enabledBorder: const UnderlineInputBorder(
+              borderSide: BorderSide(color: AppColors.outlineVariant),
+            ),
+            focusedBorder: const UnderlineInputBorder(
+              borderSide: BorderSide(color: AppColors.primary),
+            ),
+          ),
+          validator: validator,
+        ),
+      ],
+    );
+  }
+}
+

@@ -57,12 +57,10 @@ void main() {
         expectLater(
           cubit.stream,
           emitsInOrder([
-            const ContactInquiryState(
-              status: ContactInquiryStatus.submitting,
-            ),
+            const ContactInquiryState(status: ContactInquiryStatus.submitting),
             const ContactInquiryState(
               status: ContactInquiryStatus.success,
-              message: 'Strategic inquiry submitted successfully!',
+              message: ContactInquiryCubit.successMessage,
             ),
           ]),
         );
@@ -85,12 +83,10 @@ void main() {
         expectLater(
           cubit.stream,
           emitsInOrder([
-            const ContactInquiryState(
-              status: ContactInquiryStatus.submitting,
-            ),
+            const ContactInquiryState(status: ContactInquiryStatus.submitting),
             const ContactInquiryState(
               status: ContactInquiryStatus.failure,
-              message: 'Please provide valid inquiry details.',
+              message: ContactInquiryCubit.failureMessage,
             ),
           ]),
         );
@@ -113,12 +109,10 @@ void main() {
         expectLater(
           cubit.stream,
           emitsInOrder([
-            const ContactInquiryState(
-              status: ContactInquiryStatus.submitting,
-            ),
+            const ContactInquiryState(status: ContactInquiryStatus.submitting),
             const ContactInquiryState(
               status: ContactInquiryStatus.failure,
-              message: 'Failed to transmit inquiry. Please try again.',
+              message: ContactInquiryCubit.failureMessage,
             ),
           ]),
         );

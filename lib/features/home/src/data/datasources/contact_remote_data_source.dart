@@ -19,35 +19,38 @@ final class ContactRemoteDataSourceImpl implements ContactRemoteDataSource {
     String? accessKey,
   }) async {
     final effectiveAccessKey = accessKey?.trim() ?? '';
-    if (effectiveAccessKey.isEmpty) {
-      // In development or when key is not configured, throw exception or fail gracefully
-      throw StateError('Web3Forms Access Key is not configured.');
-    }
 
-    final payload = {
-      'access_key': effectiveAccessKey,
-      'name': inquiry.fullName,
-      'email': inquiry.corporateEmail,
-      'message': inquiry.projectSummary,
-      'subject': 'Portfolio Strategic Inquiry from ${inquiry.fullName}',
-      'from_name': 'Portfolio Inquiry Form',
-    };
+    if (effectiveAccessKey.isEmpty) _reportAccessKeyNotConfigured();
 
-    final uri = Uri.parse(endpointUrl);
+    return await _sendContactInquiry(inquiry, effectiveAccessKey);
+  }
+
+  void _reportAccessKeyNotConfigured() {
+    throw StateError('Web3Forms Access Key is not configured.');
+  }
+
+  Future<bool> _sendContactInquiry(
+    ContactInquiry inquiry,
+    String accessKey,
+  ) async {
     final response = await _client.post(
-      uri,
+      Uri.parse(endpointUrl),
       headers: {
         'Content-Type': 'application/json',
         'Accept': 'application/json',
       },
-      body: jsonEncode(payload),
+      body: jsonEncode({
+        'access_key': accessKey,
+        'name': inquiry.fullName,
+        'email': inquiry.corporateEmail,
+        'message': inquiry.projectSummary,
+        'subject': 'Portfolio Strategic Inquiry from ${inquiry.fullName}',
+        'from_name': 'Portfolio Inquiry Form',
+      }),
     );
 
-    if (response.statusCode >= 200 && response.statusCode < 300) {
-      final data = jsonDecode(response.body) as Map<String, dynamic>;
-      return data['success'] == true;
-    } else {
-      return false;
-    }
+    return response.statusCode >= 200 && response.statusCode < 300
+        ? (jsonDecode(response.body) ?? {})['success'] == true
+        : false;
   }
 }

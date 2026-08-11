@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio/core/l10n/app_localizations.dart';
-import 'package:portfolio/design_system/theme/app_colors.dart';
-import 'package:portfolio/features/home/src/domain/entities/experience_entity.dart';
 
-import 'experience_card_mobile_widget.dart';
-import 'experience_content_widget.dart';
+import '../../../../../../core/l10n/app_localizations.dart';
+import '../../../../../../design_system/theme/app_colors.dart';
+import '../../../domain/entities/experience_entity.dart';
 import '../shared/sliver_responsive_builder.dart';
 import '../shared/sliver_responsive_section.dart';
+import 'experience_card_mobile_widget.dart';
+import 'experience_content_widget.dart';
 
 final class SliverExperienceSection extends StatelessWidget {
   final List<ExperienceEntity> experiences;

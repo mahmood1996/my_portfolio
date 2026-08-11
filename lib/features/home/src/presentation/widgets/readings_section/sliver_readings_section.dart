@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:responsive_builder/responsive_builder.dart';
-import 'package:portfolio/core/l10n/app_localizations.dart';
 
-import 'package:portfolio/design_system/theme/app_colors.dart';
-import 'package:portfolio/features/home/src/domain/entities/reading_entity.dart';
-
-import 'book_card_widget.dart';
+import '../../../../../../core/l10n/app_localizations.dart';
+import '../../../../../../design_system/theme/app_colors.dart';
+import '../../../domain/entities/reading_entity.dart';
 import '../shared/sliver_responsive_builder.dart';
 import '../shared/sliver_responsive_section.dart';
+import 'book_card_widget.dart';
 
 final class SliverReadingsSection extends StatelessWidget {
   final List<ReadingEntity> readings;

@@ -1,16 +1,11 @@
 import 'package:flutter/material.dart';
 
-import 'stores_buttons.dart';
-
-import 'in_progress_label.dart';
-
-import 'project_cover_image.dart';
-
-import '../shared/hover_tracking.dart';
-
-import '../../../domain/entities/project_entity.dart';
-
 import '../../../../../../design_system/theme/app_colors.dart';
+import '../../../domain/entities/project_entity.dart';
+import '../shared/hover_tracking.dart';
+import 'in_progress_label.dart';
+import 'project_cover_image.dart';
+import 'stores_buttons.dart';
 
 final class ProjectCardWidget extends StatelessWidget {
   final ProjectEntity project;

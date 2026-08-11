@@ -2,8 +2,8 @@ import '../entities/about_entity.dart';
 import '../entities/contact_info_entity.dart';
 import '../entities/experience_entity.dart';
 import '../entities/project_entity.dart';
-import '../entities/skill_entity.dart';
 import '../entities/reading_entity.dart';
+import '../entities/skill_entity.dart';
 
 class PortfolioData {
   final AboutEntity about;
