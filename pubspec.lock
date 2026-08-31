@@ -320,10 +320,11 @@ packages:
   responsive_builder:
     dependency: "direct main"
     description:
-      name: responsive_builder
-      sha256: "64a5ef3fbe3628e4588a0c2391c3186300e76f58621d8135cc77aac816255a3e"
-      url: "https://pub.dev"
-    source: hosted
+      path: "."
+      ref: HEAD
+      resolved-ref: e90fc0c805abfcd05e695559551aed9ae572878a
+      url: "https://github.com/fastogt/responsive_builder.git"
+    source: git
     version: "0.7.1"
   sky_engine:
     dependency: transitive

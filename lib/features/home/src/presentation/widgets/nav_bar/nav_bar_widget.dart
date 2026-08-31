@@ -1,12 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 import '../../../../../../core/l10n/app_localizations.dart';
 import '../../../../../../design_system/theme/app_colors.dart';
 import '../../../../../../design_system/theme/app_fonts.dart';
-import '../../bloc/portfolio_bloc.dart';
-import '../../cubit/download_cv_cubit.dart';
-import '../../cubit/download_cv_state.dart';
+import 'download_cv_button.dart';
 import 'nav_link_widget.dart';
 
 final class NavBarWidget extends StatelessWidget
@@ -112,57 +109,7 @@ final class NavBarWidget extends StatelessWidget
                   // Download CV Button
                   Row(
                     children: [
-                      BlocBuilder<DownloadCVCubit, DownloadCVState>(
-                        builder: (context, downloadState) {
-                          final isDownloading =
-                              downloadState.status == DownloadCVStatus.inProgress;
-
-                          return ElevatedButton(
-                            onPressed: isDownloading
-                                ? null
-                                : () {
-                                    final cvUrl = context
-                                            .read<PortfolioBloc>()
-                                            .state
-                                            .data
-                                            ?.about
-                                            .cvUrl ??
-                                        '';
-                                    context
-                                        .read<DownloadCVCubit>()
-                                        .downloadCV(cvUrl);
-                                  },
-                            style: ElevatedButton.styleFrom(
-                              backgroundColor: AppColors.primary,
-                              foregroundColor: AppColors.onPrimary,
-                              padding: const EdgeInsets.symmetric(
-                                horizontal: 24,
-                                vertical: 14,
-                              ),
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(8),
-                              ),
-                              elevation: 0,
-                            ),
-                            child: isDownloading
-                                ? const SizedBox(
-                                    height: 16,
-                                    width: 16,
-                                    child: CircularProgressIndicator(
-                                      strokeWidth: 2,
-                                      color: AppColors.onPrimary,
-                                    ),
-                                  )
-                                : Text(
-                                    l10n.downloadCv,
-                                    style: const TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 14,
-                                    ),
-                                  ),
-                          );
-                        },
-                      ),
+                      const DownloadCvButton(),
 
                       if (!isDesktop)
                         PopupMenuButton<String>(

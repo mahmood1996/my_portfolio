@@ -11,6 +11,13 @@ final class ProjectCoverImage extends StatelessWidget {
 
   final bool isHovered;
 
+  String get _formattedUrl {
+    if (url.contains('lh3.googleusercontent.com/d/') && !url.contains('=')) {
+      return '$url=w600';
+    }
+    return url;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -21,7 +28,7 @@ final class ProjectCoverImage extends StatelessWidget {
           duration: const Duration(milliseconds: 300),
           curve: Curves.easeOutCubic,
           child: Image.network(
-            url,
+            _formattedUrl,
             fit: BoxFit.cover,
             errorBuilder: (context, error, stackTrace) =>
                 Icon(Icons.broken_image_outlined, size: 80),
