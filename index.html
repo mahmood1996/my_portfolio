@@ -17,6 +17,27 @@
   -->
   <base href="/my_portfolio/">
 
+  <!-- Preloading images 
+  <link rel="preload" href="assets/images/app_store.webp" as="image" type="image/png" />
+  <link rel="preload" href="assets/images/google_play.webp" as="image" type="image/png" />
+  <link rel="preload" href="assets/images/hero_profile.webp" as="image" type="image/png" />
+
+  Preloading fonts 
+  <link rel="preload" href="assets/fonts/Inter-Italic-VariableFont_opsz,wght.ttf" as="font" type="font/ttf"
+    crossorigin="anonymous">
+
+  <link rel="preload" href="assets/fonts/Inter-VariableFont_opsz,wght.ttf" as="font" type="font/ttf"
+    crossorigin="anonymous">
+
+  <link rel="preload" href="assets/fonts/PlusJakartaSans-VariableFont_wght.ttf" as="font" type="font/ttf"
+    crossorigin="anonymous">
+
+  <link rel="preload" href="assets/fonts/PlusJakartaSans-Italic-VariableFont_wght.ttf" as="font" type="font/ttf"
+    crossorigin="anonymous">
+
+  <link rel="preload" href="assets/fonts/SpaceGrotesk-VariableFont_wght.ttf" as="font" type="font/ttf"
+    crossorigin="anonymous"> -->
+
   <meta charset="UTF-8">
   <meta content="IE=Edge" http-equiv="X-UA-Compatible">
   <meta name="description" content="A new Flutter project.">
@@ -31,10 +52,55 @@
   <link rel="icon" type="image/png" href="favicon.png" />
 
   <title>portfolio</title>
+
   <link rel="manifest" href="manifest.json">
+  <style>
+    /* 1. Ensure the body matches the fixed color to prevent flashes */
+    body {
+      background-color: #050708;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* 2. Style the container with the same fixed color */
+    .loading-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #050708;
+      z-index: 9999;
+    }
+
+    .spinner {
+      width: 50px;
+      height: 50px;
+      border: 5px solid #FFFFFF00;
+      border-top: 5px solid #A6C8FF;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      0% {
+        transform: rotate(0deg);
+      }
+
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+  </style>
 </head>
 
 <body>
+  <div id="loading-indicator" class="loading-container">
+    <div class="spinner"></div>
+  </div>
   <!--
     You can customize the "flutter_bootstrap.js" script.
     This is useful to provide a custom configuration to the Flutter loader
@@ -45,6 +111,12 @@
   -->
   <script src="coi-serviceworker.js"></script>
   <script src="flutter_bootstrap.js" async></script>
+  <script src="flutter.js" defer></script>
+  <script>
+    window.addEventListener('flutter-first-frame', function () {
+      document.getElementById('loading-indicator').remove();
+    });
+  </script>
 </body>
 
 </html>

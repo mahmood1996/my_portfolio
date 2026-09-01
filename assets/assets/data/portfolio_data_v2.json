@@ -285,42 +285,42 @@
     {
       "title": "Elegant Objects",
       "author": "Yegor Bugayenko",
-      "imagePath": "assets/images/book_placeholder.webp"
+      "imageUrl": "https://lh3.googleusercontent.com/d/169q8m8dQnpjUELRq45Q4a2nWyNw718y4=w512"
     },
     {
       "title": "Test Driven Development",
       "author": "Kent Beck",
-      "imagePath": "assets/images/book_placeholder.webp"
+      "imageUrl": "https://lh3.googleusercontent.com/d/169q8m8dQnpjUELRq45Q4a2nWyNw718y4=w512"
     },
     {
       "title": "Refactoring",
       "author": "Martin Fowler",
-      "imagePath": "assets/images/book_placeholder.webp"
+      "imageUrl": "https://lh3.googleusercontent.com/d/169q8m8dQnpjUELRq45Q4a2nWyNw718y4=w512"
     },
     {
       "title": "Clean Code",
       "author": "Robert C. Martin",
-      "imagePath": "assets/images/book_placeholder.webp"
+      "imageUrl": "https://lh3.googleusercontent.com/d/169q8m8dQnpjUELRq45Q4a2nWyNw718y4=w512"
     },
     {
       "title": "Get your hands dirty with Clean Architecture",
       "author": "Tom Hombergs",
-      "imagePath": "assets/images/book_placeholder.webp"
+      "imageUrl": "https://lh3.googleusercontent.com/d/169q8m8dQnpjUELRq45Q4a2nWyNw718y4=w512"
     },
     {
       "title": "Adaptive Code (SOLID)",
       "author": "Gary McLean Hall",
-      "imagePath": "assets/images/book_placeholder.webp"
+      "imageUrl": "https://lh3.googleusercontent.com/d/169q8m8dQnpjUELRq45Q4a2nWyNw718y4=w512"
     },
     {
       "title": "Refactoring Guru",
       "author": "Alexander Shvets",
-      "imagePath": "assets/images/book_placeholder.webp"
+      "imageUrl": "https://lh3.googleusercontent.com/d/169q8m8dQnpjUELRq45Q4a2nWyNw718y4=w512"
     },
     {
       "title": "Head First Design Patterns",
       "author": "Freeman & Robson",
-      "imagePath": "assets/images/book_placeholder.webp"
+      "imageUrl": "https://lh3.googleusercontent.com/d/169q8m8dQnpjUELRq45Q4a2nWyNw718y4=w512"
     }
   ]
 }
