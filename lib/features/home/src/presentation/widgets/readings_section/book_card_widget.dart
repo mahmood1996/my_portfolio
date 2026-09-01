@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../../../../../../design_system/asset_paths/app_assets.dart';
 import '../../../../../../design_system/theme/app_colors.dart';
 import '../../../domain/entities/reading_entity.dart';
 
@@ -26,13 +25,16 @@ final class BookCardWidget extends StatelessWidget {
             child: ClipRRect(
               borderRadius: BorderRadius.circular(8),
               clipBehavior: Clip.hardEdge,
-              child: Image.asset(
-                reading.imagePath,
+              child: Image.network(
+                reading.imageUrl,
                 fit: BoxFit.cover,
                 errorBuilder: (context, error, stackTrace) {
-                  return Image.asset(
-                    AppAssets.bookPlaceholder,
-                    fit: BoxFit.cover,
+                  return const Center(
+                    child: Icon(
+                      Icons.menu_book_outlined,
+                      color: AppColors.onSurfaceVariant,
+                      size: 48,
+                    ),
                   );
                 },
               ),

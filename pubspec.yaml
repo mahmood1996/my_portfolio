@@ -73,7 +73,3 @@ flutter:
     - family: Space Grotesk
       fonts:
         - asset: assets/fonts/SpaceGrotesk-VariableFont_wght.ttf
-    - family: Allura
-      fonts:
-        - asset: assets/fonts/Allura-Regular.ttf
-
